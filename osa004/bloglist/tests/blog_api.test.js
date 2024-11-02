@@ -19,7 +19,7 @@ describe('when there is initially some blogs saved', () => {
     await User.deleteMany({});
 
     const passwordHash = await bcrypt.hash('sekret', 10);
-    const user = new User({ username: 'root', passwordHash});
+    const user = new User({ username: 'root', passwordHash });
     await user.save();
 
     const blogsWithUser = helper.initialBlogs.map(blog => ({
@@ -80,7 +80,7 @@ describe('when there is initially some blogs saved', () => {
 
       const response = await api
         .get('/api/blogs')
-        .set('Authorization', `Bearer ${authToken}`)
+        .set('Authorization', `Bearer ${authToken}`);
       const titles = response.body.map(r => r.title);
 
       assert.strictEqual(titles.length, helper.initialBlogs.length + 1);
