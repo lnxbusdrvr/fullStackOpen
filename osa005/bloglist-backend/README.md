@@ -6,6 +6,7 @@ Changes diff to pt.4 backed:
 
 - Added start:test to package.json
 - Implemented testing-controller: /api/testing
+- Implamented populate to controllers/blog. Resolves 5.9 issue, when E2E-testing.
 
 ## Links
 1. [fsOpenPart5 E2E-testing](https://fullstackopen.com/en/part5/end_to_end_testing_playwright)
