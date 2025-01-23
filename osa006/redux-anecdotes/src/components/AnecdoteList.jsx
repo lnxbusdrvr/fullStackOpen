@@ -16,7 +16,7 @@ const AnecdoteList = () => {
 
   const dispatch = useDispatch()
   const anecdotes = useSelector(({ filter, anecdotes }) => {
-    if (!filter || typeof filter !== 'string')
+    if (!filter)
       return anecdotes
 
     return anecdotes.filter(a =>
