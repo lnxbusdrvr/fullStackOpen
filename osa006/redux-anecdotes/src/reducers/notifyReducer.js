@@ -4,7 +4,7 @@ const notifySlice = createSlice({
   name: 'notification',
   initialState: 'Hello World',
   reducers: {
-    notifyMessage(action) {
+    notifyMessage(state, action) {
       return action.payload
     }
   }
