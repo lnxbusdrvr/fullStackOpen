@@ -14,12 +14,12 @@ const notifySlice = createSlice({
 })
 
 // Thunk
-export const setNotification = (message) => {
-  return (dispatch) => {
+export const setNotification = (message, delay) => {
+  return async (dispatch) => {
     dispatch(notifyMessage(message))
     setTimeout(() => {
       dispatch(clearNotification())
-    }, 5000) 
+    }, delay * 1000)
   }
 }
 
