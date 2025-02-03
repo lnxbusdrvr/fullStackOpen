@@ -1,0 +1,41 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "content": "custom-hooks are awesome!"
+    },
+    {
+      "id": 2,
+      "content": "best feature ever <3"
+    },
+    {
+      "content": "Fight fire with fire",
+      "id": 3
+    },
+    {
+      "content": "Back in Black",
+      "id": 4
+    },
+    {
+      "content": "TYövpomaosdkfad",
+      "id": 5
+    }
+  ],
+  "persons": [
+    {
+      "id": 1,
+      "name": "mluukkai",
+      "number": "040-5483923"
+    },
+    {
+      "id": 2,
+      "name": "hellas",
+      "number": "012-123123"
+    },
+    {
+      "name": "Minni Manni",
+      "number": "243850398453940",
+      "id": 3
+    }
+  ]
+}
