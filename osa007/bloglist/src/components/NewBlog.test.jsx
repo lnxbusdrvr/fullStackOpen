@@ -1,29 +1,27 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import NewBlog from "./NewBlog";
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import NewBlogForm from './NewBlog';
+import Blog from './Blog';
 
-describe("NewBlog", () => {
-  test("calls event handler with correct data", async () => {
-    const user = userEvent.setup();
-    const doCreate = vi.fn();
+test('Add new blog returns given new blog', async () => {
 
-    render(<NewBlog doCreate={doCreate} />);
+  const user = userEvent.setup();
+  const createBlog = vi.fn();
 
-    const title = screen.getByTestId("title");
-    const url = screen.getByTestId("url");
-    const author = screen.getByTestId("author");
-    const button = screen.getByText("Create");
+  render(<NewBlogForm createBlog={createBlog} />);
 
-    await user.type(title, "Testing the testing");
-    await user.type(url, "http://example.com");
-    await user.type(author, "Ted Tester");
-    await user.click(button);
+  const input = screen.getAllByRole('textbox');
 
-    expect(doCreate.mock.calls).toHaveLength(1);
-    expect(doCreate.mock.calls[0][0]).toEqual({
-      title: "Testing the testing",
-      url: "http://example.com",
-      author: "Ted Tester",
-    });
-  });
+  await user.type(input[0], 'Linux toimii liian hitaasti? Näin löydät syyn');
+  await user.type(input[1], 'onioni.fi');
+  await user.type(input[2], 'https://onioni.fi/linux/linux-toimii-liian-hitaasti-nain-loydat-syyn/');
+
+  const createButton = screen.getByText('create');
+  await user.click(createButton);
+
+  expect(createBlog.mock.calls).toHaveLength(1);
+  expect(createBlog.mock.calls[0][0].title).toBe('Linux toimii liian hitaasti? Näin löydät syyn');
+  expect(createBlog.mock.calls[0][0].author).toBe('onioni.fi');
+  expect(createBlog.mock.calls[0][0].url).toBe('https://onioni.fi/linux/linux-toimii-liian-hitaasti-nain-loydat-syyn/');
+
 });

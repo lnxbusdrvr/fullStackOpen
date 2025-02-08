@@ -1,65 +1,55 @@
-import React, { useState } from "react";
+import { useState } from 'react';
 
-const NewBlog = ({ doCreate }) => {
-  const [title, setTitle] = useState("");
-  const [url, setUrl] = useState("");
-  const [author, setAuthor] = useState("");
+const NewBlog = ({ createBlog }) => {
+  const [newTitle, setNewTitle] = useState('');
+  const [newAuthor, setNewAuthor] = useState('');
+  const [newUrl, setNewUrl] = useState('');
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
-  };
 
-  const handleUrlChange = (event) => {
-    setUrl(event.target.value);
-  };
-
-  const handleAuthorChange = (event) => {
-    setAuthor(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
+  const addBlog = (event) => {
     event.preventDefault();
-    doCreate({ title, url, author });
-    setAuthor("");
-    setTitle("");
-    setUrl("");
+    createBlog({
+      title: newTitle,
+      author: newAuthor,
+      url: newUrl
+    });
+
+    setNewTitle('');
+    setNewAuthor('');
+    setNewUrl('');
   };
 
   return (
     <div>
-      <h2>Create a New Blog</h2>
-      <form onSubmit={handleSubmit}>
+      <h2>Create a new note</h2>
+
+      <form onSubmit={addBlog}>
         <div>
-          <label>Title:</label>
+          title:
           <input
-            type="text"
-            data-testid="title"
-            value={title}
-            onChange={handleTitleChange}
+            value={newTitle}
+            onChange={event => setNewTitle(event.target.value)}
           />
         </div>
         <div>
-          <label>URL:</label>
+          author:
           <input
-            type="text"
-            data-testid="url"
-            value={url}
-            onChange={handleUrlChange}
+            value={newAuthor}
+            onChange={event => setNewAuthor(event.target.value)}
           />
         </div>
         <div>
-          <label>Author:</label>
+          url:
           <input
-            type="text"
-            data-testid="author"
-            value={author}
-            onChange={handleAuthorChange}
+            value={newUrl}
+            onChange={event => setNewUrl(event.target.value)}
           />
         </div>
-        <button type="submit">Create</button>
+        <button type="submit">create</button>
       </form>
     </div>
   );
 };
+
 
 export default NewBlog;
