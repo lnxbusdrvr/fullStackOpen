@@ -1,0 +1,38 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2022 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg@outlook.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# All SpaceVim option below [option] section
+[options]
+    # Prettier -save
+    auto_format_on_save = true
+
+
+# Enable Prettier
+[[layers]]
+  name = "format"
+  formatters = ["prettier"]
+
+[[layers]]
+  name = "lang#javascript"
+  formatters = ["prettier"]
+
+[[layers]]
+  name = "lang#typescript"
+  formatters = ["prettier"]
+# Enable Prettier END
+
+[[layers]]
+  name = "lsp"
+  filetypes = ["javascript", "typescript"]
+
+[lsp]
+  server = "typescript-language-server --stdio"
+
+[server]
+port = 8999
+
