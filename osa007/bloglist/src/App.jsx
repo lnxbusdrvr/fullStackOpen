@@ -45,8 +45,8 @@ const App = () => {
         <LoginForm setUser={setUser} />
       ) : (
         <>
-          <Notification  />
           <h2>blogs</h2>
+          <Notification  />
           <p>
             {user.name} logged in <button onClick={handleLogout}>logout</button>
           </p>
