@@ -25,7 +25,7 @@ const Blog = () => {
   return (
     <div>
       {blogs.map(blog => (
-        <div key={blog.id} style={{ paddingTop: 10, paddingLeft: 2, border: 'solid', borderWidth: 1, marginBottom: 5 }}>
+        <div key={blog.id} style={blogStyle}>
           {blog.title} {blog.author}
           <button onClick={() => toggleView(blog.id)}>
             {viewBlog[blog.id] ? 'hide' : 'view'}

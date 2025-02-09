@@ -25,7 +25,7 @@ const App = () => {
     const storage1User = storage.loadUser();
     if (storage1User)
       dispatch(setUser(user))
-  }, [dispatch]);
+  }, [user, dispatch]);
 
   useEffect(() => {
     if (user) {
