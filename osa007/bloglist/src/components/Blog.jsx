@@ -1,9 +1,11 @@
+import { useSelector } from 'react-redux';
+
 import { useState } from 'react';
 import BlogTail from './BlogTail';
-import PropTypes from 'prop-types';
 
-const Blog = ({ blog, addLike, removeBlog, loggedUser }) => {
-  const [viewBlog, setViewBlog] = useState(false);
+const Blog = () => {
+  const blogs = useSelector((state) => state.blogs);
+  const [viewBlog, setViewBlog] = useState({});
 
   const blogStyle = {
     paddingTop: 10,
@@ -13,26 +15,31 @@ const Blog = ({ blog, addLike, removeBlog, loggedUser }) => {
     marginBottom: 5
   };
 
-  return (
-    <div data-testid='bloglist' style={blogStyle} >
-      {blog.title} {blog.author} {viewBlog ?
-        <button onClick={() => setViewBlog(false)}>hide</button> :
-        <button onClick={() => setViewBlog(true)}>view</button>
-      }
-      {viewBlog &&
-          <BlogTail
-            blog={blog}
-            addLike={addLike}
-            removeBlog={removeBlog}
-            loggedUser={loggedUser}
-          />
-      }
-    </div>
-  );
-};
+  const toggleView = (id) => {
+    setViewBlog(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  }
 
-Blog.propType = {
-  loggedUser: PropTypes.string.isRerquired,
-};
+  return (
+    <div>
+      {blogs.map(blog => (
+        <div key={blog.id} style={{ paddingTop: 10, paddingLeft: 2, border: 'solid', borderWidth: 1, marginBottom: 5 }}>
+          {blog.title} {blog.author}
+          <button onClick={() => toggleView(blog.id)}>
+            {viewBlog[blog.id] ? 'hide' : 'view'}
+          </button>
+
+          {viewBlog[blog.id] && (
+            <BlogTail
+              blog={blog}
+            />
+          )}
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default Blog;

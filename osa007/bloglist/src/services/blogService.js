@@ -7,8 +7,9 @@ const getConfit = () => ({
   headers : { Authorization: `Bearer ${storage.loadUser().token}` }
 })
 
+
 const getAll = () => {
-  const request = axios.get(baseUrl)
+  const request = axios.get(baseUrl, getConfit())
   return request.then(response => response.data)
 }
 

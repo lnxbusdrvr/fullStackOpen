@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setNotification } from '../reducers/notificationReducer';
+import { setUser } from '../reducers/userReducer';
 import loginService from '../services/loginService';
 import storage from '../services/storageService';
 import Notification from './Notification';
@@ -17,7 +18,7 @@ const LoginForm = ({ setUser }) => {
       const user = await loginService.login({ username, password });
       storage.saveUser(user);
       dispatch(setNotification(`Welcome back, ${user.name}!`, 5, false));
-      setUser(user);
+      dispatch(setUser(user));
       setUsername('');
       setPassword('');
     } catch {

@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { createNewBlog } from '../reducers/blogReducer'
+import { setNotification } from '../reducers/notificationReducer';
 
 const NewBlog = ({ createBlog }) => {
+  const dispatch = useDispatch()
   const [newTitle, setNewTitle] = useState('');
   const [newAuthor, setNewAuthor] = useState('');
   const [newUrl, setNewUrl] = useState('');
@@ -8,20 +12,20 @@ const NewBlog = ({ createBlog }) => {
 
   const addBlog = (event) => {
     event.preventDefault();
-    createBlog({
-      title: newTitle,
-      author: newAuthor,
-      url: newUrl
-    });
+    dispatch(createNewBlog({ title: newTitle, author: newAuthor, url: newUrl }))
+    dispatch(setNotification(`added new blog '${newTitle} by ${newAuthor}'`, 5, false));
+    clearInputs()
+  };
 
+  const clearInputs = () => {
     setNewTitle('');
     setNewAuthor('');
     setNewUrl('');
-  };
+  }
 
   return (
     <div>
-      <h2>Create a new note</h2>
+      <h2>Create a new blog</h2>
 
       <form onSubmit={addBlog}>
         <div>
@@ -46,6 +50,7 @@ const NewBlog = ({ createBlog }) => {
           />
         </div>
         <button type="submit">create</button>
+        <button onClick={clearInputs}>reset</button>
       </form>
     </div>
   );
