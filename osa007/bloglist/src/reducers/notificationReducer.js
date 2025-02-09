@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const sclice = createSlice({
+const slice = createSlice({
   name: 'notification',
   initialState: null,
   reducers: {
@@ -13,14 +13,14 @@ const sclice = createSlice({
   },
 })
 
-export const setNotification = (content, seconds) => {
+export const setNotification = (note, seconds, isErrorMessage) => {
   return async dispatch => {
-    dispatch(set(content))
+    dispatch(set({note, isErrorMessage}))
     setTimeout(()=> {
       dispatch(clear())
     }, seconds * 1000)
   }
 }
 
-export const { set, clear } = sclice.actions
-export default sclice.reducer
+export const { set, clear } = slice.actions
+export default slice.reducer

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import blogService from '../services/blogService'
 
-const sclice = createSlice({
+const slice = createSlice({
   name: 'blogs',
   initialState: [],
   reducers: {
@@ -18,5 +18,5 @@ export const initializeBlogs = () => {
   }
 }
 
-export const { setBlogs } = sclice.actions
-export default sclice.reducer
+export const { setBlogs } = slice.actions
+export default slice.reducer
