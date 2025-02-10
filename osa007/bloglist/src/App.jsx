@@ -6,6 +6,7 @@ import Notification from './components/Notification';
 import NewBlogForm from './components/NewBlog';
 import Togglable from './components/Toggable';
 import LoginForm from './components/LoginFormComponent';
+import Users from './components/UsersComponent';
 
 import blogService from './services/blogService';
 
@@ -20,6 +21,7 @@ const App = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user)
   const blogFormRef = useRef();
+  const userFormRef = useRef();
 
   useEffect(() => {
     const storage1User = storage.loadUser();
@@ -49,9 +51,14 @@ const App = () => {
           <h2>blogs</h2>
           <Notification  />
           <p>
-            {user.name} logged in <button onClick={handleLogout}>logout</button>
+            {user.name} logged in
           </p>
-          <Togglable buttonLabel="new note" ref={blogFormRef}>
+          <button onClick={handleLogout}>logout</button>
+
+          <Togglable buttonLabel="users" ref={userFormRef}>
+            <Users />
+          </Togglable>
+          <Togglable buttonLabel="new blog" ref={blogFormRef}>
             <NewBlogForm />
           </Togglable>
           <Blog />
