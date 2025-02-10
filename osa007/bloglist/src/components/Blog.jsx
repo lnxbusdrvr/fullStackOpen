@@ -1,45 +1,56 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { likeBlog, removeBlog } from '../reducers/blogReducer'
+import PropTypes from 'prop-types';
+import { setNotification } from '../reducers/notificationReducer';
 
-import { useState } from 'react';
-import BlogTail from './BlogTail';
+const BlogTail = () => {
+  const dispatch = useDispatch()
+  const { id } = useParams() // get id from url-object
+  const users = useSelector(state => state.user)
+  const blogs = useSelector(state => state.blogs)
+  const user = users.find(u => u.id === id)
+  const blog = blogs.filter(b => b.user.id === id)
 
-const Blog = () => {
-  const blogs = useSelector((state) => state.blogs);
-  const [viewBlog, setViewBlog] = useState({});
-
-  const blogStyle = {
-    paddingTop: 10,
-    paddingLeft: 2,
-    border: 'solid',
-    borderWidth: 1,
-    marginBottom: 5
+  const removeStyle = {
+    backgroundColor: 'CornflowerBlue',
+    color: 'black',
+    borderRadius: '0.5em',
+    fontWeight: 'bold',
+    padding: '0.1em 0.4em',
   };
 
-  const toggleView = (id) => {
-    setViewBlog(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
+  const handleLike = (blog) => {
+    dispatch(likeBlog(blog))
+    dispatch(setNotification(`Liked blog '${blog.title} by ${blog.author}'`, 5, false));
+  }
+
+  const handleRemove = (id) => {
+    dispatch(removeBlog(id))
+    dispatch(setNotification(`Removed blog`, 5, false));
   }
 
   return (
     <div>
-      {blogs.map(blog => (
-        <div key={blog.id} style={blogStyle}>
-          {blog.title} {blog.author}
-          <button onClick={() => toggleView(blog.id)}>
-            {viewBlog[blog.id] ? 'hide' : 'view'}
-          </button>
-
-          {viewBlog[blog.id] && (
-            <BlogTail
-              blog={blog}
-            />
-          )}
-        </div>
-      ))}
+      <div>
+        {blog.url}
+      </div>
+      <div data-testid='likesValue'>
+        likes {blog.likes} <button data-testid='likeButton' onClick={() => handleLike(blog)}>like</button>
+      </div>
+      <div>
+        {blog.user.name}
+      </div>
+      {blog.user.username === users.username && (
+        <button style={removeStyle} onClick={() => handleRemove(blog.id)}>remove</button>
+      )}
     </div>
-  )
-}
+  );
+};
+
+BlogTail.propType = {
+  users: PropTypes.string.isRerquired,
+};
+
 
 export default Blog;
