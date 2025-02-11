@@ -35,6 +35,15 @@ export const createNewBlog = (newBlog) => {
   };
 };
 
+export const addComment = (id, newComment) => {
+  return async (dispatch, getState) => {
+    const blog = getState().blogs.find(b => b.id === id);
+    const updatedBlog = { ...blog, comments: [ ...blog.comments, newComment ] };
+    await blogService.update(id, updatedBlog);
+    dispatch(replaceBlog(updatedBlog))
+  }
+}
+
 export const likeBlog = (blog) => {
   const toLike = { ...blog, likes: blog.likes + 1};
   return async dispatch => {

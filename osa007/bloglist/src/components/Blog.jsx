@@ -1,11 +1,13 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { likeBlog, removeBlog } from '../reducers/blogReducer';
+import { likeBlog, removeBlog, addComment } from '../reducers/blogReducer';
 import PropTypes from 'prop-types';
 import { setNotification } from '../reducers/notificationReducer';
 
 const Blog = () => {
+  const [ newComment, setNewComment ] = useState('')
   const dispatch = useDispatch();
   const { id } = useParams(); // get id from url-object
   const user = useSelector(state => state.user);
@@ -35,6 +37,15 @@ const Blog = () => {
     navigate('/');
   };
 
+  const handleCommentSubmit = (event) => {
+    event.preventDefault();
+    if (newComment.trim()) {
+      dispatch(addComment(id, newComment));
+      dispatch(setNotification(`Added new comment`, 5, false));
+      setNewComment('');
+    }
+  };
+
   return (
     <div>
       <h2>{blog.title}</h2>
@@ -53,6 +64,18 @@ const Blog = () => {
         </button>
       )}
       <h3>comments</h3>
+
+      <form onSubmit={handleCommentSubmit}>
+        <div>
+          <input
+            type="text"
+            value={newComment}
+            onChange={event => setNewComment(event.target.value)}
+          />
+          <button type="sumbit">add comments</button>
+        </div>
+      </form>
+
       <ul>
         {blog.comments && blog.comments.length > 0
           ? (blog.comments.map((comment, index) => (
