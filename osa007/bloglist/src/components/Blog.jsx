@@ -36,12 +36,11 @@ const Blog = () => {
   };
 
   return (
-    <div key={blog.id}>
+    <div>
       <h2>{blog.title}</h2>
       <a href={blog.url}>{blog.url}</a>
       <div data-testid="likesValue">
-        {blog.likes} likes{" "}
-        <button data-testid="likeButton" onClick={() => handleLike(blog)}>
+        {blog.likes} likes <button data-testid="likeButton" onClick={() => handleLike(blog)}>
           like
         </button>
       </div>
@@ -53,13 +52,20 @@ const Blog = () => {
           remove
         </button>
       )}
+      <h3>comments</h3>
+      <ul>
+        {blog.comments && blog.comments.length > 0
+          ? (blog.comments.map((comment, index) => (
+            <li key={index}>{comment}</li>
+        )))
+          : (
+          <li>no comment</li>
+        )}
+      </ul>
     </div>
   );
 };
 
-Blog.propType = {
-  users: PropTypes.string.isRequired,
-};
 
 export default Blog;
 
