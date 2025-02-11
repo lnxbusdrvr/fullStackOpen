@@ -19,7 +19,7 @@ const Users = () => {
     <div>
       <h2>Users</h2>
       <table>
-        <thead>
+        <thead className="thead-dark">
           <tr>
             <th></th>
             <th>blogs created</th>

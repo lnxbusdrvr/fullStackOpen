@@ -8,21 +8,13 @@ const Blogs = () => {
   const blogs = useSelector((state) => state.blogs);
   const blogFormRef = useRef();
 
-  const blogStyle = {
-    paddingTop: 10,
-    paddingLeft: 2,
-    border: 'solid',
-    borderWidth: 1,
-    marginBottom: 5
-  };
-
   return (
     <div>
       <Togglable buttonLabel="new blog" ref={blogFormRef}>
         <NewBlogForm />
       </Togglable>
       {blogs.map(blog => (
-        <div key={blog.id} style={blogStyle}>
+        <div key={blog.id} className="container">
           <Link to={`/blogs/${blog.id}`}>{blog.title}</Link>
         </div>
       ))}

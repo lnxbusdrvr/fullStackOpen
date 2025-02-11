@@ -18,13 +18,6 @@ const Blog = () => {
   if (!blog || !user)
     return null;
 
-  const removeStyle = {
-    backgroundColor: 'CornflowerBlue',
-    color: 'black',
-    borderRadius: '0.5em',
-    fontWeight: 'bold',
-    padding: '0.1em 0.4em',
-  };
 
   const handleLike = (blog) => {
     dispatch(likeBlog(blog));
@@ -51,7 +44,7 @@ const Blog = () => {
       <h2>{blog.title}</h2>
       <a href={blog.url}>{blog.url}</a>
       <div data-testid="likesValue">
-        {blog.likes} likes <button data-testid="likeButton" onClick={() => handleLike(blog)}>
+        {blog.likes} likes <button className="btn btn-primary" data-testid="likeButton" onClick={() => handleLike(blog)}>
           like
         </button>
       </div>
@@ -59,7 +52,7 @@ const Blog = () => {
         added by {blog.user.name}
       </div>
       {blog.user.username === user.username && (
-        <button style={removeStyle} onClick={() => handleRemove(blog.id)}>
+        <button className="btn btn-primary" onClick={() => handleRemove(blog.id)}>
           remove
         </button>
       )}

@@ -42,13 +42,13 @@ const App = () => {
 
 
   return (
-    <div>
+    <div className="container">
       {!user ? (
         <LoginForm setUser={setUser} />
       ) : (
         <>
-          <nav style={{backgroundColor: 'grey', padding: '0.5em'}}>
-            <Link to="/">blogs</Link> <Link to="/users">users</Link> {user.name} logged in <button onClick={handleLogout}>logout</button>
+          <nav className="nav-expand-lg bg-light">
+            <Link className="navbar-brand" to="/">blogs</Link> <Link className="navbar-brand" to="/users">users</Link> {user.name} logged in <button onClick={handleLogout}>logout</button>
           </nav>
           <h2>blog app</h2>
 

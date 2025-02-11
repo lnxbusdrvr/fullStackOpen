@@ -31,6 +31,7 @@ const NewBlog = ({ createBlog }) => {
         <div>
           title:
           <input
+            className="input-group-text"
             value={newTitle}
             onChange={event => setNewTitle(event.target.value)}
           />
@@ -38,6 +39,7 @@ const NewBlog = ({ createBlog }) => {
         <div>
           author:
           <input
+            className="input-group-text"
             value={newAuthor}
             onChange={event => setNewAuthor(event.target.value)}
           />
@@ -45,12 +47,13 @@ const NewBlog = ({ createBlog }) => {
         <div>
           url:
           <input
+            className="input-group-text"
             value={newUrl}
             onChange={event => setNewUrl(event.target.value)}
           />
         </div>
-        <button type="submit">create</button>
-        <button type="reset" onClick={clearInputs}>reset</button>
+        <button className="btn btn-primary" type="submit">create</button>
+        <button className="btn btn-primary" type="reset" onClick={clearInputs}>reset</button>
       </form>
     </div>
   );
