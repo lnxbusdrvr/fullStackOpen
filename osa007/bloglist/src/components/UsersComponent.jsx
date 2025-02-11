@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { initializeUsers } from '../reducers/usersReducer';
 import usersService from '../services/usersService';
-import { Link }  from 'react-router-dom'
+import { Link }  from 'react-router-dom';
 
 const Users = () => {
   const dispatch = useDispatch();

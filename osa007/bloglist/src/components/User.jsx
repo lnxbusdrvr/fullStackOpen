@@ -1,17 +1,17 @@
-import { useParams, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 const User = () => {
-  const { id } = useParams() // get id from url-object
-  const users = useSelector((state) => state.users)
+  const { id } = useParams(); // get id from url-object
+  const users = useSelector((state) => state.users);
   const blogs = useSelector(state => state.blogs);
-  const navigate = useNavigate()
-  const user = users.find(u => u.id === id)
-  const userBlog = blogs.filter(b => b.user.id === id)
+  const navigate = useNavigate();
+  const user = users.find(u => u.id === id);
+  const userBlog = blogs.filter(b => b.user.id === id);
 
   if (!user)
-    return null
+    return null;
 
   return (
     <div>
@@ -27,5 +27,5 @@ const User = () => {
   );
 };
 
-export default User
+export default User;
 

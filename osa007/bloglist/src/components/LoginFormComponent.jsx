@@ -2,14 +2,17 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setNotification } from '../reducers/notificationReducer';
 import { setUser } from '../reducers/userReducer';
+import { useNavigate } from 'react-router-dom';
 import loginService from '../services/loginService';
 import storage from '../services/storageService';
 import Notification from './Notification';
+
 
 const LoginForm = ({ setUser }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -21,6 +24,7 @@ const LoginForm = ({ setUser }) => {
       dispatch(setUser(user));
       setUsername('');
       setPassword('');
+      navigate('/')
     } catch {
       dispatch(setNotification(`Wrong credentials`, 5, true));
     }
