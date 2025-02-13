@@ -106,9 +106,15 @@ const typeDefs = `
     genres: [String!]!
   }
 
+  type Author {
+    name: String!
+    bookCount: Int!
+  }
+
   type Query {
     bookCount: Int!
     authorCount: Int!
+    allAuthors: [Author!]!
     allBooks: [Book!]!
     dummy: Int
   }
@@ -119,8 +125,13 @@ const resolvers = {
     bookCount: () => books.length,
     authorCount: () => authors.length,
     allBooks: () => books,
+    allAuthors: () => authors,
     dummy: () => 0
+  },
+  Author: {
+    bookCount: (a) => books.filter(book => book.author === a.name).length
   }
+    
 }
 
 const server = new ApolloServer({
