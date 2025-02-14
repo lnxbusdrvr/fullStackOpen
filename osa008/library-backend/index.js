@@ -159,27 +159,31 @@ const resolvers = {
   },
   Mutation: {
     addBook: (root, args) => {
-      if (books.find(b => b.author === args.author)) {
-        const book = { ...args, title: args.title, published: args.published, genre: [args.genres]}
-        books = books.concat(book)
-        return book
+      const newBook = {
+        id: uuid(),
+        title: args.title,
+        author: args.author,
+        published: args.published,
+        genres: args.genres
       }
 
-      const newAuthor = { ...args, name: args.author, id: uuid()}
-      authors.concat(newAuthor)
+      books = books.concat(newBook)
 
-      const book = { id: uuid(), title: args.title, author: args.author, published: args.published, genres: [args.genres] }
-      books = books.concat(book)
+      if (!authors.find(b => b.name === args.author)) {
+        const newAuthor = { name: args.author, id: uuid() }
+        authors = authors.concat(newAuthor)
+      }
 
-      return book
+      return newBook
     },
     editAuthor: (root, args) => {
-      if (authors.find(a => a.name === args.name)) {
+      const author = authors.find(a => a.name === args.name)
+        if (!author)
+          return null
+
         const updatedAuthor = { ...args, born: args.setBornTo}
-        authors.concat(updatedAuthor)
+        authors = authors.map(a => a.name === args.name ? updatedAuthor : a)
         return updatedAuthor 
-      }
-      return null
     }
   }
     
