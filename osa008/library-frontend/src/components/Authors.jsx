@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { gql, useMutation } from "@apollo/client"
+import Select from 'react-select'
 
 const EDIT_AUTHORS = gql`
   mutation EditAuthor($name: String!, $setBornTo: Int!) {
@@ -26,7 +27,8 @@ const Authors = (props) => {
   }
   const authors = props.authors
 
-  const [ name, setName ] = useState('')
+  // Need whole object, not just name
+  const [ selectedAuthor, setSelectedAuthor ] = useState(null)
   const [ born, setBorn ] = useState('')
   const [ editAuthor ]= useMutation(EDIT_AUTHORS, {
     refetchQueries: [ { query: ALL_AUTHORS } ]
@@ -35,13 +37,23 @@ const Authors = (props) => {
   const addBorn = async (event) => {
     event.preventDefault()
 
+    if (!selectedAuthor) {
+      alert("Please select an author first")
+      return
+    }
+
     await editAuthor({
-      variables: { name, setBornTo: Number(born) }
+      variables: { name: selectedAuthor.value, setBornTo: Number(born) }
     })
 
-    setName('')
+    setSelectedAuthor(null)
     setBorn('')
   }
+
+  const authorOptions = authors.map(a => ({
+    value: a.name,
+    label: a.name
+  }))
 
   return (
     <div>
@@ -66,10 +78,17 @@ const Authors = (props) => {
       <form onSubmit={addBorn} >
         <h3>set birthyear</h3>
         <div>
-        name <input value={name} name="author" onChange={(e) => setName(e.target.value)} /> 
+          <Select
+            options={authorOptions}
+            value={selectedAuthor}
+            onChange={setSelectedAuthor}
+            placeholder="Select an author..."
+            isClearable
+            isSearcgable
+          /> 
         </div>
         <div>
-        born <input value={born} name="born" onChange={(e) => setBorn(e.target.value)} />
+          born <input value={born} name="born" onChange={(e) => setBorn(e.target.value)} />
         </div>
         <button type="submit">update author</button>
       </form>
