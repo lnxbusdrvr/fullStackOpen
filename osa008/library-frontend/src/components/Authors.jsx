@@ -84,7 +84,7 @@ const Authors = (props) => {
             onChange={setSelectedAuthor}
             placeholder="Select an author..."
             isClearable
-            isSearcgable
+            isSearcable
           /> 
         </div>
         <div>
