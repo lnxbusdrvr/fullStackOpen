@@ -87,16 +87,16 @@ const resolvers = {
       }
 
       if (args.genres)
-        filter.genres = { $in: [args.genre] } // set only books by genre
+        filter.genres = { $in: [args.genre] } // set only books included by genre
 
-      return await Book.find(filter)
+      return await Book.find(filter).populate('author')
 
     },
     dummy: () => 0
   },
   Author: {
     bookCount: async (a) => {
-      return await Book.collection.countDocuments({ name: a.name })
+      return await Book.collection.countDocuments({ author: a._id })
     }
   },
   Mutation: {
@@ -110,28 +110,42 @@ const resolvers = {
 
       const newBook = new Book({
         title: args.title,
-        author: author.name,
+        author: author._id,
         published: args.published,
         genres: args.genres
       })
 
-      books = books.concat(newBook)
-
-      if (!authors.find(b => b.name === args.author)) {
-        const newAuthor = { name: args.author, id: uuid() }
-        authors = authors.concat(newAuthor)
+      try {
+        await newBook.save()
+      } catch(error) {
+        throw new GrapgQLError('Saving new book failed',{
+          extensions: {
+            code: 'BAD_USER_INPUT',
+            invalidArgs: args.author,
+            error
+          }
+        }
+)
       }
 
-      return newBook
+      return newBook.populate('author')
     },
-    editAuthor: (root, args) => {
-      const author = authors.find(a => a.name === args.name)
-        if (!author)
-          return null
+    editAuthor: async (root, args) => {
+      const author = await Author.findOneAndUpdate(
+        { name: args.name },
+        { born: args.setBornTo },
+        { new: true }
+      )
 
-        const updatedAuthor = { ...args, born: args.setBornTo}
-        authors = authors.map(a => a.name === args.name ? updatedAuthor : a)
-        return updatedAuthor 
+      if (!author) {
+        throw new GraphQLError('Author not found', {
+          extensions: {
+            code: 'BAD_USER_INPUT',
+            invalidArgs: args.name
+          }
+        })
+      }
+      return author
     }
   }
     
