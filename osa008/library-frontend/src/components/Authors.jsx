@@ -1,38 +1,18 @@
 import { useState } from "react"
-import { gql, useMutation } from "@apollo/client"
+import { useQuery, useMutation } from "@apollo/client"
+import { EDIT_AUTHORS, ALL_AUTHORS, ALL_BOOKS } from '../queries'
 import Select from 'react-select'
 
-const EDIT_AUTHORS = gql`
-  mutation EditAuthor($name: String!, $setBornTo: Int!) {
-    editAuthor(name: $name, setBornTo: $setBornTo) {
-      name
-      born
-    }
-  }
-`
-
-const ALL_AUTHORS = gql`
-  query {
-    allAuthors{
-      name
-      born
-      bookCount
-    }
-  }
-`
 
 const Authors = (props) => {
-  if (!props.show) {
-    return null
-  }
-  const authors = props.authors
-
   // Need whole object, not just name
   const [ selectedAuthor, setSelectedAuthor ] = useState(null)
   const [ born, setBorn ] = useState('')
   const [ editAuthor ]= useMutation(EDIT_AUTHORS, {
     refetchQueries: [ { query: ALL_AUTHORS } ]
   })
+  const result = useQuery(ALL_AUTHORS)
+
 
   const addBorn = async (event) => {
     event.preventDefault()
@@ -50,10 +30,19 @@ const Authors = (props) => {
     setBorn('')
   }
 
+  if (!props.show)
+    return null
+
+  if (result.loading)
+    return <div>loading...</div>
+
+  const authors = result.data.allAuthors
+
   const authorOptions = authors.map(a => ({
     value: a.name,
     label: a.name
   }))
+
 
   return (
     <div>
@@ -75,7 +64,8 @@ const Authors = (props) => {
         </tbody>
         
       </table>
-      <form onSubmit={addBorn} >
+      {props.token &&
+      (<form onSubmit={addBorn} >
         <h3>set birthyear</h3>
         <div>
           <Select
@@ -91,7 +81,7 @@ const Authors = (props) => {
           born <input value={born} name="born" onChange={(e) => setBorn(e.target.value)} />
         </div>
         <button type="submit">update author</button>
-      </form>
+      </form>)}
     </div>
   )
 }

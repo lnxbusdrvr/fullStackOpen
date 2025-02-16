@@ -26,7 +26,6 @@ const App = () => {
     setToken(null)
     localStorage.clear()
     client.resetStore()
-    setPage("authors")
   }
 
 
@@ -51,15 +50,9 @@ const App = () => {
 
       <Books show={page === "books"} />
 
-      <NewBook show={page === "add"} setPage={setPage} />
-      {page === "login" &&
-        <LoginForm
-          show={page === "login"}
-          setToken={setToken}
-          setError={notify}
-          setPage={setPage}
-        />
-      }
+      <NewBook show={page === "add"} />
+
+      <LoginForm show={page === "login"} />
     </div>
   );
 };
