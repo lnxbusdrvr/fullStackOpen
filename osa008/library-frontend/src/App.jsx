@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery, useApolloClient } from '@apollo/client'
 
 import Authors from "./components/Authors";
@@ -6,6 +6,7 @@ import Books from "./components/Books";
 import NewBook from "./components/NewBook";
 import Notify from './components/Notify';
 import LoginForm from './components/LoginForm';
+import Recommendations from './components/Recommendations';
 
 
 const App = () => {
@@ -14,6 +15,11 @@ const App = () => {
   const [ token, setToken ] = useState(null)
   const client = useApolloClient()
 
+  useEffect(() => {
+    const savedToken = localStorage.getItem('booknauthor-user-token')
+    if (savedToken)
+      setToken(savedToken)
+  }, [])
 
   const notify = (message) => {
     setErrorMessage(message)
@@ -39,6 +45,7 @@ const App = () => {
           ? (
             <>
               <button onClick={() => setPage("add")}>add book</button>
+              <button onClick={() => setPage("recommendations")}>recommendations</button>
               <button onClick={logout}>logout</button>
             </>
           )
@@ -50,6 +57,8 @@ const App = () => {
       <Authors show={page === "authors"} token={token}  />
 
       <Books show={page === "books"} />
+
+      <Recommendations show={page === "recommendations"} />
 
       <NewBook show={page === "add"} setPage={setPage} />
       {page === "login" &&
