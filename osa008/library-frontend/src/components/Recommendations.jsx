@@ -1,29 +1,39 @@
-import { useQuery, useMutation } from "@apollo/client"
-import { ALL_BOOKS, ME } from '../queries'
+import React,  { useState, useEffect } from 'react'
+import { useQuery, useLazyQuery } from "@apollo/client"
+import { ME, ALL_BOOKS_GENRE } from '../queries'
 
 const Recommendations = (props) => {
-  const result = useQuery(ME)
-  const resultBooks = useQuery(ALL_BOOKS)
+  const resultMe = useQuery(ME)
+  const [ askBooksQuery, resultBooks ] = useLazyQuery(ALL_BOOKS_GENRE)
+  const [ favoriteGenreBooks, setFavoriteGenreBooks ] = useState([])
+
+  // Get books query according by genre
+  useEffect(() => {
+    /* Don't sign variable eg. me = resultMe.data,
+     * cause it might be undefined, use direct instead*/
+    if (resultBooks.data)
+      setFavoriteGenreBooks(resultBooks.data.allBooks)
+  }, [favoriteGenreBooks, resultBooks])
+
+  // Get user's setFavoriteGenre, when ME is ready
+  useEffect(() => {
+    /*
+     * optional chaining? makes actually things work*/
+    if (resultMe.data?.me?.favoriteGenre)
+      askBooksQuery({ variables: { genre: resultMe.data.me.favoriteGenre } })
+    }, [askBooksQuery, resultMe])
+
 
   if (!props.show)
     return null
 
-  if (result.loading)
+  if (resultMe.loading || resultBooks.loading)
     return <div>loading...</div>
-
-  if (resultBooks.loading)
-    return <div>loading...</div>
-
-  const me = result.data.me
-
-  const favoriteGenre = me.favoriteGenre
-
-  const books = resultBooks.data.allBooks.filter(b => b.genres.includes(favoriteGenre))
 
   return (
     <div>
       <h2>recommendations</h2>
-      <div>books in your favorite genre <strong>{favoriteGenre}</strong></div>
+      <div>books in your favorite genre <strong>{resultMe.data.me.favoriteGenre}</strong></div>
       <table>
         <tbody>
           <tr>
@@ -31,10 +41,10 @@ const Recommendations = (props) => {
             <th>author</th>
             <th>published</th>
           </tr>
-          {books.map((b) => (
+          {favoriteGenreBooks.length > 0 && favoriteGenreBooks?.map((b) => (
             <tr key={b.title}>
               <td>{b.title}</td>
-              <td>{b.author.name}</td>
+              <td>{b.author?.name || 'ei'}</td>
               <td>{b.published}</td>
             </tr>
           ))}
@@ -43,5 +53,7 @@ const Recommendations = (props) => {
     </div>
   )
 }
+/*
+*/
 
 export default Recommendations
