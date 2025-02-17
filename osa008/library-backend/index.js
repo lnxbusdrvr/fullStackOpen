@@ -105,7 +105,7 @@ const resolvers = {
       if (args.genre)
         filter.genres = { $in: [args.genre] } // set only books included by genre
 
-      return await Book.find(filter)
+      return await Book.find(filter).populate('author')
 
     },
     me: (root, args, context) => {
