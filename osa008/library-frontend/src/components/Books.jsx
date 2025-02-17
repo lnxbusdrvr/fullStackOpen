@@ -1,24 +1,33 @@
-import { useQuery } from '@apollo/client'
-import { useState } from "react";
-import { ALL_BOOKS } from '../queries'
+import { useState, useEffect } from "react";
+import { useQuery, useLazyQuery } from '@apollo/client'
+import { ALL_BOOKS, ALL_BOOKS_GENRE } from '../queries'
 
 const Books = (props) => {
   const result = useQuery(ALL_BOOKS)
-  const [ genre, setGenre ] = useState(null)
+  const [getBooksGenreSearch, resultGenreSearch] = useLazyQuery(ALL_BOOKS_GENRE)
+  const [genre, setGenre ] = useState('')
+  const [filteredBooks, setFilteredBooks] = useState([])
+
+  // update filtered books on genre changes
+  useEffect(() => {
+    if (genre)
+      getBooksGenreSearch({ variables: { genre }})
+    else if (result.data?.allBooks)
+      setFilteredBooks(result.data.allBooks)
+  }, [genre, getBooksGenreSearch, result.data])
+
+  useEffect(() => {
+    if (resultGenreSearch.data)
+      setFilteredBooks(resultGenreSearch.data.allBooks)
+  }, [resultGenreSearch])
 
   if (!props.show)
     return null
 
-  if (result.loading)
+  if (result.loading || resultGenreSearch.loading)
     return <div>loading...</div>
 
-  const books = result.data.allBooks
-
-  const allGenres = [...new Set(books.flatMap(book => book.genres))]
-
-  const filteredBooks = genre
-    ? books.filter(b => b.genres.includes(genre))
-    : books
+  const allGenres = [...new Set(result.data.allBooks.flatMap(book => book.genres))]
 
 
   return (
@@ -49,12 +58,11 @@ const Books = (props) => {
           <button key={`genre-${idx}`} onClick={() => setGenre(g)}>{g}</button>
         )
       })}
-      <button key="all genres" onClick={() => setGenre(null)}>all genres</button>
+      <button key="all genres" onClick={() => setGenre('')}>all genres</button>
       </div>
     </div>
   )
 }
 /*
-        <button onClick={() => setGenre(g)}>pattern</button>
         */
 export default Books
