@@ -1,0 +1,20 @@
+{
+  "name": "node-typescript",
+  "version": "1.0.0",
+  "description": "node-typescript",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "ts-node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "typescript"
+  ],
+  "author": "lnxbusdrvr",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
