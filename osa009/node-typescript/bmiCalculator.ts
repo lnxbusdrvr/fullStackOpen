@@ -1,16 +1,9 @@
-const bmiCalculator = (args: number[]): string => {
-  if (args.length !== 2) {
-    throw new Error('Please provide exactly two arguments: height (cm) and weight (kg)');
-  }
+import isNotNumber from './utils'
 
-  const height = args[0] / 100; // cm → m
-  const mass = args[1];
+const bmiCalculator = (height: number, mass: number): string => {
+  const heightInMeters = height / 100;
 
-  if (isNaN(height) || isNaN(mass)) {
-    throw new Error('Provided values were not numbers!');
-  }
-
-  const bmi = mass / (height * height);
+  const bmi = mass / (heightInMeters * heightInMeters);
 
   switch (true) {
     case bmi < 16:
@@ -32,8 +25,20 @@ const bmiCalculator = (args: number[]): string => {
   }
 };
 
-// Lisää tämä, jotta koodi toimii komentorivillä
-console.log(bmiCalculator([Number(process.argv[2]), Number(process.argv[3])]));
+// Validate args
+const args: string[] = process.argv; 
+if (args.length < 4) throw new Error('Not enough arguments');
+if (args.length > 4) throw new Error('Too many arguments');
+
+const height = Number(process.argv[2]); 
+const mass = Number(process.argv[3]); 
+
+// ...and argv
+if (isNotNumber(height) || isNotNumber(mass))
+  throw new Error('argument should be an number');
+
+console.log(bmiCalculator(height, mass));
+
 
 export default bmiCalculator;
 
