@@ -1,8 +1,5 @@
-import isNotNumber from './utils'
-
 const bmiCalculator = (height: number, mass: number): string => {
   const heightInMeters = height / 100;
-
   const bmi = mass / (heightInMeters * heightInMeters);
 
   switch (true) {
@@ -24,21 +21,6 @@ const bmiCalculator = (height: number, mass: number): string => {
       return 'Obese (Class III)';
   }
 };
-
-// Validate args
-const args: string[] = process.argv; 
-if (args.length < 4) throw new Error('Not enough arguments');
-if (args.length > 4) throw new Error('Too many arguments');
-
-const height = Number(process.argv[2]); 
-const mass = Number(process.argv[3]); 
-
-// ...and argv
-if (isNotNumber(height) || isNotNumber(mass))
-  throw new Error('argument should be an number');
-
-console.log(bmiCalculator(height, mass));
-
 
 export default bmiCalculator;
 

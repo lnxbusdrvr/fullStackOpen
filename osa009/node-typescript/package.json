@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "ts-node-dev index.ts",
-    "calculateBmi": "ts-node bmiCalculator.ts",
+    "calculateBmi": "ts-node bmiCli.ts",
     "calculateExercises": "ts-node exerciseCalculator.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "ts-node index.ts"
