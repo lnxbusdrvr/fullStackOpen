@@ -1,7 +1,4 @@
 
-import isNotNumber from './utils'
-
-
 interface ExercisesAvg {
   periodLength: number;
   trainingDays: number;
@@ -10,7 +7,7 @@ interface ExercisesAvg {
   ratingDescription: string;
   target: number;
   average: number;
-}
+};
 
 const calculateExercises = (target: number, dailyHours: number[]): ExercisesAvg => {
   const periodLength = dailyHours.length;
@@ -30,7 +27,7 @@ const calculateExercises = (target: number, dailyHours: number[]): ExercisesAvg 
     ratingDescription = 'Not too bad but could be better';
   } else {
     rating = 1;
-    ratingDescription = 'Not bad but try to do a lot more';
+    ratingDescription = 'bad';
   }
 
   return {
@@ -44,19 +41,5 @@ const calculateExercises = (target: number, dailyHours: number[]): ExercisesAvg 
   };
 };
 
-// Validate args
-const args: string[] = process.argv.slice(2); // removes node and filename
-if (args.length < 10) throw new Error('Not enough arguments');
-if (args.length > 10) throw new Error('Too many arguments');
 
-// Check all cliArg-types. some() gives all args by default
-if (args.some(isNotNumber)) {
-  throw new Error('All arguments should be numbers');
-}
-
-const dailyHours = args.slice(1, args.length).map(Number); //All except last one
-const target = Number(args[0]); 
-
-console.log(calculateExercises(target, dailyHours) )
-
-
+export default calculateExercises; 
