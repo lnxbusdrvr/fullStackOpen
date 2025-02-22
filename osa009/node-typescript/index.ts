@@ -11,11 +11,10 @@ app.get('/bmi', (req, res) => {
   const height = Number(req.query.height);
   const weight = Number(req.query.weight);
 
-  /*
   if (isNaN(height) || isNaN(weight)) {
-    return res.status(400).json({ error: 'malformatted parameters' });
+    res.status(400).json({ error: 'malformatted parameters' }).end();
+    return;
   }
-  */
 
   const bmi = bmiCalculator(height, weight)
 
