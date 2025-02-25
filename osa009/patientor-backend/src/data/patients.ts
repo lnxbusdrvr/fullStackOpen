@@ -1,9 +1,9 @@
 export interface Patient {
   id: string;
   name: string;
-  dateOfBirth?: string;
+  dateOfBirth: string;
   ssn?: string;
-  gender: 'male' | 'female' | 'other';
+  gender: string;
   occupation: string;
 };
 
@@ -50,9 +50,10 @@ const patients: Patient[] = [
     }
 ];
 
-export const getNonSensitiveEntries = (): Omit<Patient, 'dateOfBirth' | 'ssn'>[] => {
+export const getNonSensitiveEntries = (): Omit<Patient, 'ssn'>[] => {
   return patients.map(p => ({
     id: p.id,
+    dateOfBirth: p.dateOfBirth,
     name: p.name,
     gender: p.gender,
     occupation: p.occupation

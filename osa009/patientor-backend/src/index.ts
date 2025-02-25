@@ -16,16 +16,6 @@ app.get('/api/patients', (_req: express.Request, res: express.Response<Patient[]
   res.json(getNonSensitiveEntries());
 });
 
-  /*
-app.post('/api/patients', (_req: express.Request, res: express.Response) => {
-  const body: Patient[] = req.body;
-
-  const patient = new <Patient>({
-    body...
-  })
-});
-  */
-
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
