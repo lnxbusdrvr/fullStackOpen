@@ -1,10 +1,11 @@
 import express from 'express';
-import { Diagnosis, getNonLatinDiagnosesEntries } from '../data/diagnoses';
+import { Diagnosis } from '../types';
+import diagnosisService from '../services/diagnosisService';
 
 const router = express.Router();
 
 router.get('/', (_req: express.Request, res: express.Response<Diagnosis[]>) => {
-  res.json(getNonLatinDiagnosesEntries());
+  res.json(diagnosisService.getNonLatinDiagnosesEntries());
 });
 
 export default router;

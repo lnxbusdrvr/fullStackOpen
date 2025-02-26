@@ -1,8 +1,4 @@
-export interface Diagnosis {
-  code: string;
-  name: string;
-  latin?: string;
-};
+import { Diagnosis } from '../src/types'
 
 const diagnoses: Diagnosis[] = [
   {
@@ -83,13 +79,6 @@ const diagnoses: Diagnosis[] = [
     "latin": "Alia retinopathia proliferativa"
   }
 ];
-
-export const getNonLatinDiagnosesEntries = (): Omit<Diagnosis, 'latin'>[] => {
-  return diagnoses.map(d => ({
-    code: d.code,
-    name: d.name
-  }));
-};
 
 
 export default diagnoses;

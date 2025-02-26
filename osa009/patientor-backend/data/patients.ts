@@ -1,11 +1,4 @@
-export interface Patient {
-  id: string;
-  name: string;
-  dateOfBirth: string;
-  ssn?: string;
-  gender: string;
-  occupation: string;
-};
+import { Patient } from '../src/types';
 
 const patients: Patient[] = [
     {
@@ -49,16 +42,6 @@ const patients: Patient[] = [
         "occupation": "Digital evangelist"
     }
 ];
-
-export const getNonSensitiveEntries = (): Omit<Patient, 'ssn'>[] => {
-  return patients.map(p => ({
-    id: p.id,
-    dateOfBirth: p.dateOfBirth,
-    name: p.name,
-    gender: p.gender,
-    occupation: p.occupation
-  }));
-};
 
 
 export default patients;
