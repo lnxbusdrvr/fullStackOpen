@@ -1,5 +1,6 @@
 import express from 'express';
 import patientService from '../services/patientService';
+import { toNewPatientEntry } from '../utils';
 
 const router = express.Router();
 
@@ -9,8 +10,10 @@ router.get('/', (_req: express.Request, res: express.Response) => {
 
 router.post('/', (req: express.Request, res: express.Response) => {
   try {
-    const addEntry = patientService.addPatient(req.body);
-    res.json(addEntry);
+    // Validate data
+    const newValitadedPatientEntry = toNewPatientEntry(req.body); 
+    const addPatientEntry = patientService.addPatient(newValitadedPatientEntry);
+    res.json(addPatientEntry);
   } catch (error: unknown) {
     let errorMessage = 'Something went wrong on creating new entrt';
     if (error instanceof Error) {
