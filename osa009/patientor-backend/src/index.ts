@@ -1,5 +1,5 @@
 import express from 'express';
-const cors = require('cors');
+import cors from 'cors';
 import pingRouter from './routes/pingRouter';
 import patientRouter from './routes/patientRouter';
 import diagnosisRouter from './routes/diagnosisRouter';
