@@ -1,3 +1,4 @@
+import courseParts from './entries'
 import Header from './components/Header'
 import Content from './components/Content'
 import Total from './components/Total'
@@ -5,6 +6,7 @@ import Total from './components/Total'
 
 const App = () => {
   const courseName = "Half Stack application development";
+  /*
   const courseParts = [
     {
       name: "Fundamentals",
@@ -19,6 +21,7 @@ const App = () => {
       exerciseCount: 14
     }
   ];
+  */
 
   const totalExercises = courseParts.reduce((sum, part) => sum + part.exerciseCount, 0);
 
