@@ -50,6 +50,10 @@ const NewDiaryForm = ({ onSubmit }: Props) => {
       visibility,
       comment
     });
+    setDate('');
+    setWeather(null);
+    setVisibility(null);
+    setComment('');
   };
 
 
@@ -59,13 +63,41 @@ const NewDiaryForm = ({ onSubmit }: Props) => {
       {error && <div style={{ color: 'red', paddingBottom: '15px' }}>{error}</div>}
       <form onSubmit={addDiary}>
         <div>
-          date<input label='date' value={date} onChange={() => setDate(event.target.value)}/>
+          date<input
+                type='date'
+                label='date'
+                value={date}
+                onChange={() => setDate(event.target.value)}
+                required
+              />
         </div>
         <div>
-          weather<input label='weather' value={weather} onChange={() => setWeather(event.target.value)}/>
+          <label>visibility</label>
+          {Object.values(Visibility).map(v => (
+            <label key={v}>
+              <input
+                type='radio'
+                name='visibility'
+                checked={visibility === v}
+                onChange={() => setVisibility(v)}
+                />
+                {v}
+                </label>
+                ))}
         </div>
         <div>
-          visibility<input label='visibility' value={visibility} onChange={() => setVisibility(event.target.value)}/>
+          <label>Weather</label>
+          {Object.values(Weather).map(w => (
+            <label key={w}>
+              <input
+                type='radio'
+                name='weather'
+                checked={weather === w}
+                onChange={() => setWeather(w)}
+              />
+              {w}
+          </label>
+          ))}
         </div>
         <div>
           comment<input label='comment' value={comment} onChange={() => setComment(event.target.value)}/>
