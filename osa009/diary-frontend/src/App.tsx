@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react'
-import diaryService from './services/diaries'
-import { Diary } from "./types";
+import { useState, useEffect } from 'react';
+import diaryService from './services/diaries';
+import { Diary, NewDiary } from "./types";
 
-import Header from './components/Header'
-import Content from './components/Content'
+import Header from './components/Header';
+import Diaries from './components/Diaries';
+import NewDiaryForm from './components/NewDiaryForm';
 
-function App() {
+const App = () => {
   const [diaries, setDiaries] = useState<Diary[]>([]);
 
   useEffect(() => {
@@ -21,11 +22,21 @@ function App() {
     void fetchDiaryEntries();
   }, []);
 
+  const submitNewDiary = async (newDiaryValues: NewDiary) => {
+    try {
+      const diary = await diaryService.create(newDiaryValues);
+      setDiaries( diaries.concat(diary) );
+    } catch {
+      console.log('error accured on add new data');
+    };
+  };
+
 
   return (
     <div>
       <Header name={'diary app'} />
-      <Content diaries={diaries} />
+      <NewDiaryForm onSubmit={submitNewDiary} />
+      <Diaries diaries={diaries} />
     </div>
   )
 }

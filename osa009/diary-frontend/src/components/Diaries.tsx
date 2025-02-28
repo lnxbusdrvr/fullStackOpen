@@ -1,6 +1,6 @@
 import { Weather, Visibility } from '../types';
 
-interface ContentProps {
+interface DiariesProps {
   diaries: { 
     id: string; 
     date: string;
@@ -10,9 +10,10 @@ interface ContentProps {
   }[];
 }
 
-const Content = ({ diaries }: ContentProps) => {
+const Diaries = ({ diaries }: DiariesProps) => {
   return (
     <div>
+      <h2>Diary entries</h2>
       <table>
         <tbody>
           <tr>
@@ -33,5 +34,5 @@ const Content = ({ diaries }: ContentProps) => {
   );
 };
 
-export default Content;
+export default Diaries;
 
