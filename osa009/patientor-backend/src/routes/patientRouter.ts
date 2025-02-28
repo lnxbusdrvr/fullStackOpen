@@ -8,6 +8,18 @@ router.get('/', (_req: express.Request, res: express.Response) => {
   res.json(patientService.getNonSensitivePatientEntries());
 });
 
+router.get('/:id', (req: express.Request, res: express.Response) => {
+  const patientById = patientService
+    .getNonSensitivePatientEntriesById(req.params.id);
+
+  if (patientById) {
+    res.json(patientById);
+  } else {
+    res.status(404).json({ error: "Patient not found by given id" });
+  }
+});
+
+
 router.post('/', (req: express.Request, res: express.Response) => {
   try {
     // Validate data
@@ -18,9 +30,9 @@ router.post('/', (req: express.Request, res: express.Response) => {
     let errorMessage = 'Something went wrong on creating new entrt';
     if (error instanceof Error) {
       errorMessage = 'Error: ' + error.message;
-    }
+    };
     res.status(400).end(errorMessage);
-  }
+  };
 });
 
 

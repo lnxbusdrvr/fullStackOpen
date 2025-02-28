@@ -16,10 +16,25 @@ const getNonSensitivePatientEntries = (): NonSensitivePatientEntry[] => {
   }));
 };
 
+/*                                                                                 if id not found */
+const getNonSensitivePatientEntriesById = (id: string): Patient | undefined => {
+  const patientById = patients.find(p => p.id === id);
+  return patientById  ? {
+    id: patientById.id,
+    name: patientById.name,
+    dateOfBirth: patientById.dateOfBirth,
+    ssn: patientById.ssn,
+    gender: patientById.gender,
+    occupation: patientById.occupation,
+    entries: patientById.entries
+  } : undefined;
+};
+
 const addPatient = ( entry: NewPatientEntry ): Patient => {
   const newPatientEntry = {
     id: uuid(),
-    ...entry
+    ...entry,
+    entries: []
   };
 
   patients.push(newPatientEntry);
@@ -29,5 +44,6 @@ const addPatient = ( entry: NewPatientEntry ): Patient => {
 
 export default {
   getNonSensitivePatientEntries,
-  addPatient 
+  addPatient,
+  getNonSensitivePatientEntriesById
 };
