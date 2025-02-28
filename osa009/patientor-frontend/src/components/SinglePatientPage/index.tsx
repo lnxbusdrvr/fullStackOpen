@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import WomanIcon from '@mui/icons-material/Woman';
+import ManIcon from '@mui/icons-material/Man';
+import TransgenderIcon from '@mui/icons-material/Transgender';
+
 import { apiBaseUrl } from '../../constants';
 import { Patient } from "../types";
 
@@ -27,11 +31,11 @@ const SinglePatientPage = () => {
   const chooseGenderSymbol = (gender: string) => {
     switch(gender) {
       case 'male':
-        return <span title="male">&#9794;</span>; // ♂️ (U+2642)
+        return <ManIcon titleAccess="Male" />;
       case 'female':
-        return <span title="female">&#9792;</span>; // ♀️ (U+2640)
+        return <WomanIcon titleAccess="Female" />;
       default:
-        return <span title="other">&#9893;</span>; // ⚧️ (U+26A7)
+        return <TransgenderIcon titleAccess="Other" />;
     }
   };
 
