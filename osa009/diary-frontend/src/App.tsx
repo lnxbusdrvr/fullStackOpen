@@ -27,7 +27,7 @@ const App = () => {
       const diary = await diaryService.create(newDiaryValues);
       setDiaries( diaries.concat(diary) );
     } catch {
-      console.log('error accured on add new data');
+      console.log('error accured while adding new data');
     };
   };
 

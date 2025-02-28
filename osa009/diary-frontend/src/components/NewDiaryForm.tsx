@@ -11,10 +11,39 @@ const NewDiaryForm = ({ onSubmit }: Props) => {
   const [weather, setWeather] = useState<Weather>(Weather.Sunny);
   const [visibility, setVisibility] = useState<Visibility>(Visibility.Good);
   const [comment, setComment] = useState('');
+  const [error, setError] = useState('');
 
+  const isValidDateInput = (date: string): boolean => {
+    const datePattern = /^\d{4}-\d{2}-\d{2}$/; // YYYY-MM-DD
+    /*                 isit YYYY-MM-DD      and isit Date  */
+    return datePattern.test(date) && !isNaN(Date.parse(date));
+  };
 
   const addDiary = (event: SyntheticEvent) => {
     event.preventDefault();
+    if (!isValidDateInput(date)) {
+      setError(`Error: Incorrect date format: '${date}'. Use YYYY-MM-DD.`);
+      setTimeout(() => {
+        setError('');
+      }, 5000);
+    };
+
+    if (!Object.values(Weather).includes(weather as Weather)) {
+      setError(`Error: Incorrect weather: '${weather}'`);
+      setTimeout(() => {
+        setError('');
+      }, 5000);
+      return;
+    }
+
+    if (!Object.values(Visibility).includes(visibility as Visibility)) {
+      setError(`Error: Incorrect visibility: '${visibility}'`);
+      setTimeout(() => {
+        setError('');
+      }, 5000);
+      return;
+    };
+
     onSubmit({
       date,
       weather,
@@ -27,6 +56,7 @@ const NewDiaryForm = ({ onSubmit }: Props) => {
   return (
     <div>
       <h3>Add new entry</h3>
+      {error && <div style={{ color: 'red', paddingBottom: '15px' }}>{error}</div>}
       <form onSubmit={addDiary}>
         <div>
           date<input label='date' value={date} onChange={() => setDate(event.target.value)}/>
