@@ -1,6 +1,6 @@
 import express from 'express';
 import patientService from '../services/patientService';
-import { toNewPatientEntry } from '../utils';
+import { toNewPatientEntry, toNewEntry } from '../utils';
 
 const router = express.Router();
 
@@ -27,7 +27,22 @@ router.post('/', (req: express.Request, res: express.Response) => {
     const addPatientEntry = patientService.addPatient(newValitadedPatientEntry);
     res.json(addPatientEntry);
   } catch (error: unknown) {
-    let errorMessage = 'Something went wrong on creating new entrt';
+    let errorMessage = 'Something went wrong while entering new data';
+    if (error instanceof Error) {
+      errorMessage = 'Error: ' + error.message;
+    };
+    res.status(400).end(errorMessage);
+  };
+});
+
+router.post('/:id/entries', (req: express.Request, res: express.Response) => {
+  try {
+    const id = req.params.id;
+    const newValitadedEntryByPatient = toNewEntry(req.body);
+    const addEntryByPatient = patientService.addEntry(id, newValitadedEntryByPatient);
+    res.json(addEntryByPatient);
+  } catch (error: unknown) {
+    let errorMessage = 'Something went wrong while entering new data to patient';
     if (error instanceof Error) {
       errorMessage = 'Error: ' + error.message;
     };
