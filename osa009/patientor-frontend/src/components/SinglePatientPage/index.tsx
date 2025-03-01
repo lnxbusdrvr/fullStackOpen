@@ -7,11 +7,25 @@ import ManIcon from '@mui/icons-material/Man';
 import TransgenderIcon from '@mui/icons-material/Transgender';
 
 import { apiBaseUrl } from '../../constants';
-import { Patient } from "../types";
+import { Patient, Diagnosis } from "../types";
 
 const SinglePatientPage = () => {
   const { id } = useParams<{id: string}>();  // get id from url
   const [patient, setPatient] = useState<Patient | null>(null);
+  const [diagnoses, setDiagnoses] = useState<Diagnosis | null>(null);
+
+  useEffect(() => {
+    const fetchDiagnoses = async () => {
+      try {
+        const { data } = await axios.get<Diagnosis>(`${apiBaseUrl}/diagnoses`);
+        setDiagnoses(data);
+      } catch (error) {
+        console.error("Error occured when fetching diagnoses data", error);
+      }
+    };
+
+    fetchDiagnoses();
+  }, []);
 
   useEffect(() => {
     const fetchPatient = async () => {
@@ -39,6 +53,11 @@ const SinglePatientPage = () => {
     }
   };
 
+  const getDiagnosisName = (code: string): string => {
+    const diagnosis = diagnoses.find(d => d.code === code );
+    return diagnosis.name;
+  };
+
   return (
   <div>
     <h2>{patient.name} {chooseGenderSymbol(patient.gender)}</h2>
@@ -53,7 +72,7 @@ const SinglePatientPage = () => {
           {entry.diagnosisCodes && (
             <ul>
               {entry.diagnosisCodes.map((code) => (
-                <li key={code}>{code}</li>
+                <li key={code}>{code} {getDiagnosisName(code)}</li>
               ))}
             </ul>
           )}
