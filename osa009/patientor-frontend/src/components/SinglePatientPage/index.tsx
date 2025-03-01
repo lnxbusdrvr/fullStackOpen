@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { Button } from '@mui/material';
 
 import WomanIcon from '@mui/icons-material/Woman';
 import ManIcon from '@mui/icons-material/Man';
@@ -57,11 +59,6 @@ const SinglePatientPage = () => {
     }
   };
 
-  const getDiagnosisName = (code: string): string => {
-    const diagnosis = diagnoses.find(d => d.code === code );
-    return diagnosis ? diagnosis.name : 'Unknown';
-  };
-
   const EntryComponentPicker: React.FC<{ entry: Entry }> = ({ entry }) => {
     switch(entry.type) {
       case 'Hospital':
@@ -90,36 +87,17 @@ const SinglePatientPage = () => {
     ) : (
       <p>No entries available</p>
     )}
+    <Button
+      component={Link}
+      to={`/patients/${patient.id}/entries`}
+      variant="contained"
+      color="primary"
+    >
+      add new entry
+    </Button>
   </div>
   );
-}
-/*
- return (
-  <div>
-    <h2>{patient.name} {chooseGenderSymbol(patient.gender)}</h2>
-    <div>ssn: {patient.ssn}</div>
-    <div>Occupation: {patient.occupation}</div>
-
-    <h3>Entries</h3>
-    {patient.entries && patient.entries.length > 0 ? (
-      patient.entries.map((entry) => (showEntryInComponent(entry)
-        <div key={entry.id}>
-          <p>{entry.date} {entry.description}</p>
-          {entry.diagnosisCodes && (
-            <ul>
-              {entry.diagnosisCodes.map((code) => (
-                <li key={code}>{code} {getDiagnosisName(code)}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      ))
-    ) : (
-      <p>No entries available</p>
-    )}
-  </div>
-  );
- */
+};
 
 
 export default SinglePatientPage;

@@ -13,7 +13,7 @@ interface Props {
       criteria: string;
     }
   }
-};
+}
 
 
 const HospitalEntry = ({ entry }: Props) => {

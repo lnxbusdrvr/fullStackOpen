@@ -12,7 +12,7 @@ interface Props {
       endDate: string;
     }
   }
-};
+}
 
 
 const OccupationalHealthcareEntry = ({ entry }: Props) => {
