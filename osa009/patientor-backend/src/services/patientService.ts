@@ -17,7 +17,8 @@ const getNonSensitivePatientEntries = (): NonSensitivePatientEntry[] => {
 };
 
 /*                                                                                 if id not found */
-const getNonSensitivePatientEntriesById = (id: string): Patient | undefined => {
+const getPatientEntriesById = (id: string): Patient | undefined => {
+  /*
   const patientById = patients.find(p => p.id === id);
   return patientById  ? {
     id: patientById.id,
@@ -28,6 +29,9 @@ const getNonSensitivePatientEntriesById = (id: string): Patient | undefined => {
     occupation: patientById.occupation,
     entries: patientById.entries
   } : undefined;
+  */
+  const patientById = patients.find(p => p.id === id);
+  return patientById;
 };
 
 const addPatient = ( entry: NewPatientEntry ): Patient => {
@@ -45,5 +49,5 @@ const addPatient = ( entry: NewPatientEntry ): Patient => {
 export default {
   getNonSensitivePatientEntries,
   addPatient,
-  getNonSensitivePatientEntriesById
+  getPatientEntriesById
 };

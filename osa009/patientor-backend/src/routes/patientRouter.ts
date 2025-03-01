@@ -10,7 +10,7 @@ router.get('/', (_req: express.Request, res: express.Response) => {
 
 router.get('/:id', (req: express.Request, res: express.Response) => {
   const patientById = patientService
-    .getNonSensitivePatientEntriesById(req.params.id);
+    .getPatientEntriesById(req.params.id);
 
   if (patientById) {
     res.json(patientById);
