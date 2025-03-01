@@ -9,6 +9,10 @@ import TransgenderIcon from '@mui/icons-material/Transgender';
 import { apiBaseUrl } from '../../constants';
 import { Patient, Diagnosis } from "../types";
 
+import HospitalEntry from './HospitalEntry';
+import OccupationalHealthcareEntry from './OccupationalHealthcareEntry';
+import HealthCheckEntry from './HealthCheckEntry';
+
 const SinglePatientPage = () => {
   const { id } = useParams<{id: string}>();  // get id from url
   const [patient, setPatient] = useState<Patient | null>(null);
@@ -55,8 +59,22 @@ const SinglePatientPage = () => {
 
   const getDiagnosisName = (code: string): string => {
     const diagnosis = diagnoses.find(d => d.code === code );
-    return diagnosis.name;
+    return diagnosis ? diagnosis.name : 'Unknown';
   };
+
+  const EntryComponentPicker: React.FC<{ entry: Entry }> = ({ entry }) => {
+    switch(entry.type) {
+      case 'Hospital':
+      return <HospitalEntry entry={entry} />;
+      case 'OccupationalHealthcare':
+        return <OccupationalHealthcareEntry entry={entry} />;
+      case 'HealthCheck':
+        return <HealthCheckEntry entry={entry} />;
+      default:
+        return assertNever(entry);
+    }
+  };
+
 
   return (
   <div>
@@ -67,8 +85,26 @@ const SinglePatientPage = () => {
     <h3>Entries</h3>
     {patient.entries && patient.entries.length > 0 ? (
       patient.entries.map((entry) => (
+        <EntryComponentPicker EntryComponentPicker key={entry.id} entry={entry} />
+      ))
+    ) : (
+      <p>No entries available</p>
+    )}
+  </div>
+  );
+}
+/*
+ return (
+  <div>
+    <h2>{patient.name} {chooseGenderSymbol(patient.gender)}</h2>
+    <div>ssn: {patient.ssn}</div>
+    <div>Occupation: {patient.occupation}</div>
+
+    <h3>Entries</h3>
+    {patient.entries && patient.entries.length > 0 ? (
+      patient.entries.map((entry) => (showEntryInComponent(entry)
         <div key={entry.id}>
-          <p>{entry.date}: {entry.description}</p>
+          <p>{entry.date} {entry.description}</p>
           {entry.diagnosisCodes && (
             <ul>
               {entry.diagnosisCodes.map((code) => (
@@ -83,7 +119,7 @@ const SinglePatientPage = () => {
     )}
   </div>
   );
-}
+ */
 
 
 export default SinglePatientPage;
