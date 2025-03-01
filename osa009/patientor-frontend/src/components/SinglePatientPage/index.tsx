@@ -40,13 +40,32 @@ const SinglePatientPage = () => {
   };
 
   return (
-    <div>
-      <h2>{patient.name} {chooseGenderSymbol(patient.gender)}</h2>
-      <div>ssn: {patient.ssn}</div>
-      <div>Occupation: {patient.occupation}</div>
-    </div>
+  <div>
+    <h2>{patient.name} {chooseGenderSymbol(patient.gender)}</h2>
+    <div>ssn: {patient.ssn}</div>
+    <div>Occupation: {patient.occupation}</div>
+
+    <h3>Entries</h3>
+    {patient.entries && patient.entries.length > 0 ? (
+      patient.entries.map((entry) => (
+        <div key={entry.id}>
+          <p>{entry.date}: {entry.description}</p>
+          {entry.diagnosisCodes && (
+            <ul>
+              {entry.diagnosisCodes.map((code) => (
+                <li key={code}>{code}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))
+    ) : (
+      <p>No entries available</p>
+    )}
+  </div>
   );
-};
+}
+
 
 export default SinglePatientPage;
 
