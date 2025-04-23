@@ -1,0 +1,14 @@
+Script started on 2025-04-23 20:22:46+03:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="101" LINES="29"]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/part1[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/part1[00m$ docker run -it ubuntu
+[?2004l]0;root@28bef50ad7f2: /root@28bef50ad7f2:/# echo "Hello World"
+Hello World
+]0;root@28bef50ad7f2: /root@28bef50ad7f2:/# mkdir /usr/src/app[1@-[1@p[1@ 
+]0;root@28bef50ad7f2: /root@28bef50ad7f2:/# mkdir -p /usr/src/app/index.ks  js[1P[1P[1P[1P[1P[1P[1P[1P[1@v[1@i
+bash: vi: command not found
+]0;root@28bef50ad7f2: /root@28bef50ad7f2:/# vi /usr/src/app/index.js[1P[1P[1@t[1@o[1@u[1@c[1@h
+]0;root@28bef50ad7f2: /root@28bef50ad7f2:/# [Kexo it
+exit
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/part1[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/part1[00m$ exit
+[?2004lexit
+
+Script done on 2025-04-23 20:24:18+03:00 [COMMAND_EXIT_CODE="0"]
