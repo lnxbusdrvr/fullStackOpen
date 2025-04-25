@@ -1,0 +1,906 @@
+Script started on 2025-04-25 18:23:38+03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="150" LINES="27"]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012[00m$ cd todo-app/todo-backend/
+[?2004l[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ [7m9001[27m[1P900[K[K[Kscreen -S compose[K[K[K[K[K[K[Kdocker
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker compose -f docker-compose.dev.yml up
+[H
+[?25l[+] Running 1/3
+ [32m✔[39m Network todo-backend_default    [32mCreated[39m                                                                                                       [34m0.1s [39m
+ [33m⠋[39m Container todo-backend-mongo-1  Creating                                                                                                      [34m0.0s [39m
+ [33m⠋[39m Container todo-backend-redis-1  Creating                                                                                                      [34m0.0s [39m
+[?12l[?25h[A[A[A[A[?25l[34m[+] Running 3/3[39m
+ [32m✔[39m Network todo-backend_default    [32mCreated[39m                                                                                                       [34m0.1s [39m
+ [32m✔[39m Container todo-backend-mongo-1  [32mCreated[39m                                                                                                       [34m0.1s [39m
+ [32m✔[39m Container todo-backend-redis-1  [32mCreated[39m                                                                                                       [34m0.1s [39m
+[?12l[?25hAttaching to mongo-1, redis-1
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[20A[33mredis-1  | [39m1:C 25 Apr 2025 15:24:41.109 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[16A[K
+[K
+[2A[16B[K[2mw[0m[2m Enable Watch[0m[16A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[16A[33mredis-1  | [39m1:C 25 Apr 2025 15:24:41.109 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[15A[K
+[K
+[2A[15B[K[2mw[0m[2m Enable Watch[0m[15A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[15A[33mredis-1  | [39m1:C 25 Apr 2025 15:24:41.109 * Redis version=7.4.3, bits=64, commit=00000000, modified=0, pid=1, just started
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[14A[K
+[K
+[2A[14B[K[2mw[0m[2m Enable Watch[0m[14A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[14A[33mredis-1  | [39m1:C 25 Apr 2025 15:24:41.109 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[12A[K
+[K
+[2A[12B[K[2mw[0m[2m Enable Watch[0m[12A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[12A[33mredis-1  | [39m1:M 25 Apr 2025 15:24:41.110 * monotonic clock: POSIX clock_gettime
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[11A[K
+[K
+[2A[11B[K[2mw[0m[2m Enable Watch[0m[11A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[11A[33mredis-1  | [39m1:M 25 Apr 2025 15:24:41.110 * Running mode=standalone, port=6379.
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[10A[K
+[K
+[2A[10B[K[2mw[0m[2m Enable Watch[0m[10A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[10A[33mredis-1  | [39m1:M 25 Apr 2025 15:24:41.111 * Server initialized
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[9A[K
+[K
+[2A[9B[K[2mw[0m[2m Enable Watch[0m[9A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[9A[33mredis-1  | [39m1:M 25 Apr 2025 15:24:41.111 * Ready to accept connections tcp
+
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[8A[K
+[K
+[2A[8B[K[2mw[0m[2m Enable Watch[0m[8A
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[8A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.127+00:00"},"s":"I",  "c":"CONTROL",  "id":23285,   "ctx":"main","msg":"Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'"}
+
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[6A[K
+[K
+[2A[6B[K[2mw[0m[2m Enable Watch[0m[6A
+[K
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[6A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.128+00:00"},"s":"I",  "c":"CONTROL",  "id":5945603, "ctx":"main","msg":"Multi threading initialized"}
+
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[5A[K
+[K
+[2A[5B[K[2mw[0m[2m Enable Watch[0m[5A
+[K
+[K
+[K
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[5A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.128+00:00"},"s":"I",  "c":"NETWORK",  "id":4648601, "ctx":"main","msg":"Implicit TCP FastOpen unavailable. If TCP FastOpen is required, set at least one of the related parameters","attr":{"relatedParameters":["tcpFastOpenServer","tcpFastOpenClient","tcpFastOpenQueueSize"]}}
+
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.129+00:00"},"s":"I",  "c":"NETWORK",  "id":4915701, "ctx":"main","msg":"Initialized wire specification","attr":{"spec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":25},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":25},"outgoing":{"minWireVersion":6,"maxWireVersion":25},"isInternalClient":true}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.130+00:00"},"s":"I",  "c":"TENANT_M", "id":7091600, "ctx":"main","msg":"Starting TenantMigrationAccessBlockerRegistry"}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.133+00:00"},"s":"I",  "c":"CONTROL",  "id":4615611, "ctx":"initandlisten","msg":"MongoDB starting","attr":{"pid":1,"port":27017,"dbPath":"/data/db","architecture":"64-bit","host":"a1090d7d7292"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.133+00:00"},"s":"I",  "c":"CONTROL",  "id":23403,   "ctx":"initandlisten","msg":"Build Info","attr":{"buildInfo":{"version":"8.0.8","gitVersion":"7f52660c14217ed2c8d3240f823a2291a4fe6abd","openSSLVersion":"OpenSSL 3.0.13 30 Jan 2024","modules":[],"allocator":"tcmalloc-google","environment":{"distmod":"ubuntu2404","distarch":"x86_64","target_arch":"x86_64"}}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.133+00:00"},"s":"I",  "c":"CONTROL",  "id":51765,   "ctx":"initandlisten","msg":"Operating System","attr":{"os":{"name":"Ubuntu","version":"24.04"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.133+00:00"},"s":"I",  "c":"CONTROL",  "id":21951,   "ctx":"initandlisten","msg":"Options set by command line","attr":{"options":{"net":{"bindIp":"*"},"security":{"authorization":"enabled"}}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.134+00:00"},"s":"I",  "c":"STORAGE",  "id":22270,   "ctx":"initandlisten","msg":"Storage engine to use detected by data files","attr":{"dbpath":"/data/db","storageEngine":"wiredTiger"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.134+00:00"},"s":"I",  "c":"STORAGE",  "id":22297,   "ctx":"initandlisten","msg":"Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem","tags":["startupWarnings"]}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.135+00:00"},"s":"I",  "c":"STORAGE",  "id":22315,   "ctx":"initandlisten","msg":"Opening WiredTiger","attr":{"config":"create,cache_size=7466M,session_max=33000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,remove=true,path=journal,compressor=snappy),builtin_extension_config=(zstd=(compression_level=6)),file_manager=(close_idle_time=600,close_scan_interval=10,close_handle_minimum=2000),statistics_log=(wait=0),json_output=(error,message),verbose=[recovery_progress:1,checkpoint_progress:1,compact_progress:1,backup:0,checkpoint:0,compact:0,evict:0,history_store:0,recovery:0,rts:0,salvage:0,tiered:0,timestamp:0,transaction:0,verify:0,log:0],prefetch=(available=true,default=false),"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.682+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":682710,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 12 through 13"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.718+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":718667,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 13 through 13"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.777+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":777737,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Main recovery loop: starting at 12/18688 to 13/256"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.844+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":844615,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 12 through 13"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.888+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":888199,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Recovering log 13 through 13"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.920+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":920445,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery log replay has successfully finished and ran for 238 milliseconds"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.920+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":920533,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global recovery timestamp: (0, 0)"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.920+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":920566,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"Set global oldest timestamp: (0, 0)"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.921+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":921475,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery rollback to stable has successfully finished and ran for 0 milliseconds"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.924+00:00"},"s":"I",  "c":"WTCHKPT",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":924236,"thread":"1:0x7f6515841680","session_name":"WT_SESSION.checkpoint","category":"WT_VERB_CHECKPOINT_PROGRESS","category_id":7,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"saving checkpoint snapshot min: 1, snapshot max: 1 snapshot count: 0, oldest timestamp: (0, 0) , meta checkpoint timestamp: (0, 0) base write gen: 758"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.933+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":933082,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery checkpoint has successfully finished and ran for 10 milliseconds"}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.933+00:00"},"s":"I",  "c":"WTRECOV",  "id":22430,   "ctx":"initandlisten","msg":"WiredTiger message","attr":{"message":{"ts_sec":1745594681,"ts_usec":933157,"thread":"1:0x7f6515841680","session_name":"txn-recover","category":"WT_VERB_RECOVERY_PROGRESS","category_id":34,"verbose_level":"DEBUG_1","verbose_level_id":1,"msg":"recovery was completed successfully and took 250ms, including 238ms for the log replay, 0ms for the rollback to stable, and 10ms for the checkpoint."}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.935+00:00"},"s":"I",  "c":"STORAGE",  "id":4795906, "ctx":"initandlisten","msg":"WiredTiger opened","attr":{"durationMillis":800}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.935+00:00"},"s":"I",  "c":"RECOVERY", "id":23987,   "ctx":"initandlisten","msg":"WiredTiger recoveryTimestamp","attr":{"recoveryTimestamp":{"$timestamp":{"t":0,"i":0}}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.937+00:00"},"s":"I",  "c":"STORAGE",  "id":9529901, "ctx":"initandlisten","msg":"Initializing durable catalog","attr":{"numRecords":5}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.938+00:00"},"s":"I",  "c":"STORAGE",  "id":9529902, "ctx":"initandlisten","msg":"Retrieving all idents from storage engine"}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.938+00:00"},"s":"I",  "c":"STORAGE",  "id":9529903, "ctx":"initandlisten","msg":"Initializing all collections in durable catalog","attr":{"numEntries":5}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.944+00:00"},"s":"W",  "c":"CONTROL",  "id":9068900, "ctx":"initandlisten","msg":"For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile","attr":{"allocator":"tcmalloc-google","sysfsFile":"/sys/kernel/mm/transparent_hugepage/enabled","currentValue":"never","desiredValue":"always"},"tags":["startupWarnings"]}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.944+00:00"},"s":"W",  "c":"CONTROL",  "id":9068900, "ctx":"initandlisten","msg":"For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile","attr":{"allocator":"tcmalloc-google","sysfsFile":"/sys/kernel/mm/transparent_hugepage/defrag","currentValue":"madvise","desiredValue":"defer+madvise"},"tags":["startupWarnings"]}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.944+00:00"},"s":"W",  "c":"CONTROL",  "id":8640302, "ctx":"initandlisten","msg":"We suggest setting the contents of sysfsFile to 0.","attr":{"sysfsFile":"/sys/kernel/mm/transparent_hugepage/khugepaged/max_ptes_none","currentValue":511},"tags":["startupWarnings"]}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.944+00:00"},"s":"W",  "c":"NETWORK",  "id":5123300, "ctx":"initandlisten","msg":"vm.max_map_count is too low","attr":{"currentValue":65530,"recommendedMinimum":1677720,"maxConns":838860},"tags":["startupWarnings"]}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.944+00:00"},"s":"W",  "c":"CONTROL",  "id":8386700, "ctx":"initandlisten","msg":"We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.","attr":{"sysfsFile":"/proc/sys/vm/swappiness","currentValue":10},"tags":["startupWarnings"]}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.947+00:00"},"s":"I",  "c":"NETWORK",  "id":4915702, "ctx":"initandlisten","msg":"Updated wire specification","attr":{"oldSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":25},"incomingInternalClient":{"minWireVersion":0,"maxWireVersion":25},"outgoing":{"minWireVersion":6,"maxWireVersion":25},"isInternalClient":true},"newSpec":{"incomingExternalClient":{"minWireVersion":0,"maxWireVersion":25},"incomingInternalClient":{"minWireVersion":25,"maxWireVersion":25},"outgoing":{"minWireVersion":25,"maxWireVersion":25},"isInternalClient":true}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.947+00:00"},"s":"I",  "c":"REPL",     "id":5853300, "ctx":"initandlisten","msg":"current featureCompatibilityVersion value","attr":{"featureCompatibilityVersion":"8.0","context":"startup"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.947+00:00"},"s":"I",  "c":"STORAGE",  "id":5071100, "ctx":"initandlisten","msg":"Clearing temp directory"}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.949+00:00"},"s":"I",  "c":"CONTROL",  "id":6608200, "ctx":"initandlisten","msg":"Initializing cluster server parameters from disk"}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.949+00:00"},"s":"I",  "c":"CONTROL",  "id":20536,   "ctx":"initandlisten","msg":"Flow Control is enabled on this deployment"}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.950+00:00"},"s":"I",  "c":"FTDC",     "id":20625,   "ctx":"initandlisten","msg":"Initializing full-time diagnostic data capture","attr":{"dataDirectory":"/data/db/diagnostic.data"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.953+00:00"},"s":"I",  "c":"REPL",     "id":6015317, "ctx":"initandlisten","msg":"Setting new configuration state","attr":{"newState":"ConfigReplicationDisabled","oldState":"ConfigPreStart"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.953+00:00"},"s":"I",  "c":"STORAGE",  "id":22262,   "ctx":"initandlisten","msg":"Timestamp monitor starting"}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.953+00:00"},"s":"I",  "c":"STORAGE",  "id":7333401, "ctx":"initandlisten","msg":"Starting the DiskSpaceMonitor"}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.954+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"/tmp/mongodb-27017.sock"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.954+00:00"},"s":"I",  "c":"NETWORK",  "id":23015,   "ctx":"listener","msg":"Listening on","attr":{"address":"0.0.0.0:27017"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.954+00:00"},"s":"I",  "c":"NETWORK",  "id":23016,   "ctx":"listener","msg":"Waiting for connections","attr":{"port":27017,"ssl":"off"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:41.954+00:00"},"s":"I",  "c":"CONTROL",  "id":8423403, "ctx":"initandlisten","msg":"mongod startup complete","attr":{"Summary of time elapsed":{"Startup from clean shutdown?":true,"Statistics":{"Set up periodic runner":"0 ms","Set up online certificate status protocol manager":"0 ms","Transport layer setup":"0 ms","Run initial syncer crash recovery":"0 ms","Create storage engine lock file in the data directory":"0 ms","Get metadata describing storage engine":"0 ms","Validate options in metadata against current startup options":"0 ms","Create storage engine":"804 ms","Write current PID to file":"0 ms","Initialize FCV before rebuilding indexes":"3 ms","Drop abandoned idents and get back indexes that need to be rebuilt or builds that need to be restarted":"0 ms","Rebuild indexes for collections":"0 ms","Load cluster parameters from disk for a standalone":"0 ms","Build user and roles graph":"0 ms","Verify indexes for admin.system.users collection":"0 ms","Set up the background thread pool responsible for waiting for opTimes to be majority committed":"0 ms","Start up the replication coordinator":"1 ms","Ensure the change stream collections on startup contain consistent data":"0 ms","Write startup options to the audit log":"0 ms","Start transport layer":"1 ms","_initAndListen total elapsed time":"821 ms"}}}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:42.005+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"internalQueryCacheSize","canonicalName":"internalQueryCacheMaxEntriesPerCollection"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:42.005+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"oplogSamplingLogIntervalSeconds","canonicalName":"collectionSamplingLogIntervalSeconds"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:42.005+00:00"},"s":"W",  "c":"NETWORK",  "id":23803,   "ctx":"ftdc","msg":"Use of deprecated server parameter 'sslMode', please use 'tlsMode' instead."}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:42.005+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"wiredTigerConcurrentReadTransactions","canonicalName":"storageEngineConcurrentReadTransactions"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A
+[K
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[2A[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:24:42.005+00:00"},"s":"W",  "c":"CONTROL",  "id":636300,  "ctx":"ftdc","msg":"Use of deprecated server parameter name","attr":{"deprecatedName":"wiredTigerConcurrentWriteTransactions","canonicalName":"storageEngineConcurrentWriteTransactions"}}
+[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[K
+[2A
+
+[K[2mw[0m[2m Enable Watch[0m[2A[?1l>[27;1H
+[?1049l[23;0;0t[detached from 417214.docker]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -S docker[K[K[K[K[K[Kexpress
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ REDIS_URL=redis://localhost:6379 MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database npm run dev
+
+> todo-express-backend@0.0.0 dev
+> nodemon ./bin/www
+
+[K[33m[nodemon] 2.0.22[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node ./bin/www`[39m
+[?1l>[27;1H
+[?1049l[23;0;0t[detached from 418330.express]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -S express[K[K[K[K[Kec
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                           NAMES
+a1090d7d7292   mongo     "docker-entrypoint.s…"   56 seconds ago   Up 55 seconds   0.0.0.0:3456->27017/tcp, [::]:3456->27017/tcp   todo-backend-mongo-1
+543332f9e3c6   redis     "docker-entrypoint.s…"   56 seconds ago   Up 55 seconds   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp     todo-backend-redis-1
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker ps[K[Kexec -it todo-backend-mongo-1
+docker: 'docker exec' requires at least 2 arguments
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+See 'docker exec --help' for more information
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker exec -it todo-backend-mongo-1 bash
+root@a1090d7d7292:/# redis. -cli
+bash: redis-cli: command not found
+root@a1090d7d7292:/# redis-cli      [?5h[?5l[?5h[?5l   [?5h[?5l[?5h[?5l
+exit
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker exec -it todo-backend-mongo-1 bash1[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bash[P bashtodo-backend-redis-1 bash
+root@543332f9e3c6:/data# redis-cli
+127.0.0.1:6379> [K127.0.0.1:6379> K[17C[K127.0.0.1:6379> KE[18C[K127.0.0.1:6379> KEY[19C[K127.0.0.1:6379> KEYS[20C[K127.0.0.1:6379> KEYS [30m[90mpattern[39m[21C[K127.0.0.1:6379> KEYS *[30m[90m pattern[39m[22C[K127.0.0.1:6379> KEYS *[22C
+(empty array)
+127.0.0.1:6379> [?1l>[27;1H
+[?1049l[23;0;0t[detached from 418797.exec]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -S exec[K[K[Kx[K[K[K[K[K[K[K[K[K[K[K[K[7mcurl -X POST http://localhost:3001/todos -H "Content-Type: application/json" -d[27m[7m [27m[7m'{"text": "new todo", "done": true}'[27m[A]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ curl -X POST http://localhost:3001/todos -H "Content-Type: application/json" -d '{"text": "new todo", "done": true}'
+[?2004l{"_id":"680ba9daece49d63d965411f","text":"new todo","done":false,"__v":0}[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ curl -X POST http://localhost:3001/todos -H "Content-Type: application/json" -d '{"text": "new todo", "done": true}'[A]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -S exec[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kpress
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ 
+exit
+[?1l>[27;1H
+[?1049l[23;0;0t[screen is terminating]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -S exepress[1P exepressr exepress
+[?2004lThere is no screen to be resumed matching exepress.
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r exepress[1Ppress
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ REDIS_URL=redis://localhost:6379 MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database npm run dev
+
+> todo-express-backend@0.0.0 dev
+> nodemon ./bin/www
+
+[33m[nodemon] 2.0.22
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[32m[nodemon] starting `node ./bin/www`
+[39mPOST /todos [32m200 [39m24.841 ms - 73
+[?1l>[27;1H
+[?1049l[23;0;0t[detached from 418330.express]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r expressepress[K[K[K[K[Kc
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker ps
+CONTAINER ID   IMAGE[5CCOMMAND[18CCREATED[10CSTATUS[10CPORTS[43CNAMES
+a1090d7d7292   mongo[5C"docker-entrypoint.s…"   56 seconds ago   Up 55 seconds   0.0.0.0:3456->27017/tcp, [::]:3456->27017/tcp   todo-backend-mongo-1
+543332f9e3c6   redis[5C"docker-entrypoint.s…"   56 seconds ago   Up 55 seconds   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp[5Ctodo-backend-redis-1
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker exec -it todo-backend-mongo-1
+docker: 'docker exec' requires at least 2 arguments
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+See 'docker exec --help' for more information
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker exec -it todo-backend-mongo-1 bash
+root@a1090d7d7292:/# redis-cli
+bash: redis-cli: command not found
+root@a1090d7d7292:/#
+exit
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker exec -it todo-backend-redis-1 bash
+root@543332f9e3c6:/data# redis-cli
+127.0.0.1:6379> KEYS *
+(empty array)
+127.0.0.1:6379> [K127.0.0.1:6379> G[17C[K127.0.0.1:6379> GE[18C[K127.0.0.1:6379> G[17C[K127.0.0.1:6379> KEYS *[30m[90m pattern[39m[22C[K127.0.0.1:6379> KEYS *[22C
+1) "added_todos"
+127.0.0.1:6379> [K127.0.0.1:6379> G[17C[K127.0.0.1:6379> GE[18C[K127.0.0.1:6379> GET[19C[K127.0.0.1:6379> GET [30m[90mkey[39m[20C[K127.0.0.1:6379> GET a[30m[90m key[39m[21C[K127.0.0.1:6379> GET ad[30m[90m key[39m[22C[K127.0.0.1:6379> GET add[30m[90m key[39m[23C[K127.0.0.1:6379> GET adde[30m[90m key[39m[24C[K127.0.0.1:6379> GET added[30m[90m key[39m[25C[K127.0.0.1:6379> GET added_[30m[90m key[39m[26C[K127.0.0.1:6379> GET added_T[30m[90m key[39m[27C[K127.0.0.1:6379> GET added_To[30m[90m key[39m[28C[K127.0.0.1:6379> GET added_Tod[30m[90m key[39m[29C[K127.0.0.1:6379> GET added_To[30m[90m key[39m[28C[K127.0.0.1:6379> GET added_T[30m[90m key[39m[27C[K127.0.0.1:6379> GET added_[30m[90m key[39m[26C[K127.0.0.1:6379> GET added_t[30m[90m key[39m[27C[K127.0.0.1:6379> GET added_tp[30m[90m key[39m[28C[K127.0.0.1:6379> GET added_tpd[30m[90m key[39m[29C[K127.0.0.1:6379> GET added_tp[30m[90m key[39m[28C[K127.0.0.1:6379> GET added_t[30m[90m key[39m[27C[K127.0.0.1:6379> GET added_to[30m[90m key[39m[28C[K127.0.0.1:6379> GET added_tod[30m[90m key[39m[29C[K127.0.0.1:6379> GET added_todo[30m[90m key[39m[30C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> GET added_todos[31C
+"1"
+127.0.0.1:6379> [K127.0.0.1:6379> s[17C[K127.0.0.1:6379> se[18C[K127.0.0.1:6379> set[19C[K127.0.0.1:6379> set [30m[90mkey value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[20C[K127.0.0.1:6379> set[19C[K127.0.0.1:6379> se[18C[K127.0.0.1:6379> s[17C[K127.0.0.1:6379> [16C[K127.0.0.1:6379> g[17C[K127.0.0.1:6379> ge[18C[K127.0.0.1:6379> g[17C[K127.0.0.1:6379> [16C[K127.0.0.1:6379> h[17C[K127.0.0.1:6379> he[18C[K127.0.0.1:6379> hel[19C[K127.0.0.1:6379> help[20C[K127.0.0.1:6379> help [21C[K127.0.0.1:6379> help S[22C[K127.0.0.1:6379> help SE[23C[K127.0.0.1:6379> help SET[24C[K127.0.0.1:6379> help SET[24C
+
+  [1mSET[0m [30m[90mkey value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m
+  [33msummary:[39m Sets the string value of a key, ignoring its type. The key is created if it doesn't exist.
+  [33msince:[39m 1.0.0
+  [33mgroup:[39m string
+
+127.0.0.1:6379> [K127.0.0.1:6379> S[17C[K127.0.0.1:6379> SE[18C[K127.0.0.1:6379> SET[19C[K127.0.0.1:6379> SET [30m[90mkey value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[20C[K127.0.0.1:6379> SET a[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[21C[K127.0.0.1:6379> SET ad[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[22C[K127.0.0.1:6379> SET add[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[23C[K127.0.0.1:6379> SET adde[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[24C[K127.0.0.1:6379> SET added[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[25C[K127.0.0.1:6379> SET added_[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[26C[K127.0.0.1:6379> SET added_t[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[27C[K127.0.0.1:6379> SET added_to[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[28C[K127.0.0.1:6379> SET added_tod[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[29C[K127.0.0.1:6379> SET added_todo[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[30C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[31C[K127.0.0.1:6379> SET added_todos [30m[90mvalue [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[32C[K127.0.0.1:6379> SET added_todos 9[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[33C[K127.0.0.1:6379> SET added_todos 90[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[34C[K127.0.0.1:6379> SET added_todos 900[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[35C[K127.0.0.1:6379> SET added_todos 9001[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[36C[K127.0.0.1:6379> SET added_todos 9001[36C
+OK
+127.0.0.1:6379> [K127.0.0.1:6379> SET added_todos 9001[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[36C[K127.0.0.1:6379> SET added_todos 900[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[35C[K127.0.0.1:6379> SET added_todos 90[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[34C[K127.0.0.1:6379> SET added_todos 9[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[33C[K127.0.0.1:6379> SET added_todos [30m[90mvalue [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[32C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[31C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[30C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[29C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[28C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[27C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[26C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[25C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[24C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[23C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[22C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[21C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[20C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[19C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[18C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[17C[K127.0.0.1:6379> SET added_todos[30m[90m key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[16C[K127.0.0.1:6379> ET added_todos[16C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[17C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> GET added_todos[31C
+"9001"
+127.0.0.1:6379> [?1l>[27;1H
+[?1049l[23;0;0t[detached from 418797.exec]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r execpressepressS[C[C[C[C[C[C[C[C[Ccurl -X POST http://localhost:3001/todos -H "Content-Type: application/json" -d '{"text": "new todo", "done": true}'[C[1@ [1@n[1@e[1@w
+[?2004l{"_id":"680baa53ece49d63d9654121","text":"new new todo","done":false,"__v":0}[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r express
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ REDIS_URL=redis://localhost:6379 MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database npm run dev
+
+> todo-express-backend@0.0.0 dev
+> nodemon ./bin/www
+
+[33m[nodemon] 2.0.22
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[32m[nodemon] starting `node ./bin/www`
+[39mPOST /todos [32m200 [39m24.841 ms - 73
+POST /todos [32m200 [39m3.944 ms - 77
+[?1l>[27;1H
+[?1049l[23;0;0t[detached from 418330.express]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r express[K[K[K[K[Kec
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J
+See 'docker exec --help' for more information
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker exec -it todo-backend-mongo-1 bash
+root@a1090d7d7292:/# redis-cli
+bash: redis-cli: command not found
+root@a1090d7d7292:/#
+exit
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ docker exec -it todo-backend-redis-1 bash
+root@543332f9e3c6:/data# redis-cli
+127.0.0.1:6379> KEYS *
+(empty array)
+127.0.0.1:6379> KEYS *
+1) "added_todos"
+127.0.0.1:6379> GET added_todos
+"1"
+127.0.0.1:6379> help SET12
+
+[1mSET[C[0m[30m[90mkey value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][19;3H[33msummary:[C[39mSets the string value of a key, ignoring its type. The key is created if it doesn't exist.  
+[33msince:[C[39m1.0.0  
+[33mgroup:[C[39mstring
+
+127.0.0.1:6379> SET added_todos 9001
+OK
+127.0.0.1:6379> GET added_todos
+"9001"
+127.0.0.1:6379> [K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> GET added_todos[31C
+"9002"
+127.0.0.1:6379> [K127.0.0.1:6379> h[17C[K127.0.0.1:6379> he[18C[K127.0.0.1:6379> hel[19C[K127.0.0.1:6379> help[20C[K127.0.0.1:6379> help [21C[K127.0.0.1:6379> help d[22C[K127.0.0.1:6379> help de[23C[K127.0.0.1:6379> help del[24C[K127.0.0.1:6379> help dele[25C[K127.0.0.1:6379> help delet[26C[K127.0.0.1:6379> help delete[27C[K127.0.0.1:6379> help delete[27C
+
+127.0.0.1:6379> [K127.0.0.1:6379> help delete[27C[K127.0.0.1:6379> help delet[26C[K127.0.0.1:6379> help dele[25C[K127.0.0.1:6379> help del[24C[K127.0.0.1:6379> help de[23C[K127.0.0.1:6379> help d[22C[K127.0.0.1:6379> help [21C[K127.0.0.1:6379> help d[22C[K127.0.0.1:6379> help de[23C[K127.0.0.1:6379> help del[24C[K127.0.0.1:6379> help del[24C
+
+  [1mDEL[0m [30m[90mkey [key ...][39m
+  [33msummary:[39m Deletes one or more keys.
+  [33msince:[39m 1.0.0
+  [33mgroup:[39m generic
+
+127.0.0.1:6379> [K127.0.0.1:6379> help del[24C[K127.0.0.1:6379> help del [25C[K127.0.0.1:6379> help del k[26C[K127.0.0.1:6379> help del ke[27C[K127.0.0.1:6379> help del ket[28C[K127.0.0.1:6379> help del kety[29C[K127.0.0.1:6379> help del ket[28C[K127.0.0.1:6379> help del ke[27C[K127.0.0.1:6379> help del key[28C[K127.0.0.1:6379> help del key [29C[K127.0.0.1:6379> help del key a[30C[K127.0.0.1:6379> help del key ad[31C[K127.0.0.1:6379> help del key add[32C[K127.0.0.1:6379> help del key add_[33C[K127.0.0.1:6379> help del key add_t[34C[K127.0.0.1:6379> help del key add_[33C[K127.0.0.1:6379> help del key add[32C[K127.0.0.1:6379> help del key adde[33C[K127.0.0.1:6379> help del key added[34C[K127.0.0.1:6379> help del key added_[35C[K127.0.0.1:6379> help del key added_t[36C[K127.0.0.1:6379> help del key added_to[37C[K127.0.0.1:6379> help del key added_tod[38C[K127.0.0.1:6379> help del key added_todo[39C[K127.0.0.1:6379> help del key added_todos[40C[K127.0.0.1:6379> help del key added_todos[39C[K127.0.0.1:6379> help del key added_todos[38C[K127.0.0.1:6379> help del key added_todos[37C[K127.0.0.1:6379> help del key added_todos[36C[K127.0.0.1:6379> help del key added_todos[35C[K127.0.0.1:6379> help del key added_todos[34C[K127.0.0.1:6379> help del key added_todos[33C[K127.0.0.1:6379> help del key added_todos[32C[K127.0.0.1:6379> help del key added_todos[31C[K127.0.0.1:6379> help del key added_todos[30C[K127.0.0.1:6379> help del key added_todos[29C[K127.0.0.1:6379> help del key added_todos[28C[K127.0.0.1:6379> help del key added_todos[27C[K127.0.0.1:6379> help del key added_todos[26C[K127.0.0.1:6379> help del key added_todos[25C[K127.0.0.1:6379> help del key added_todos[24C[K127.0.0.1:6379> help del key added_todos[23C[K127.0.0.1:6379> help del key added_todos[22C[K127.0.0.1:6379> help del key added_todos[21C[K127.0.0.1:6379> help del key added_todos[20C[K127.0.0.1:6379> help del key added_todos[19C[K127.0.0.1:6379> help del key added_todos[18C[K127.0.0.1:6379> help del key added_todos[17C[K127.0.0.1:6379> help del key added_todos[16C[K127.0.0.1:6379> elp del key added_todos[16C[K127.0.0.1:6379> lp del key added_todos[16C[K127.0.0.1:6379> p del key added_todos[16C[K127.0.0.1:6379>  del key added_todos[30m[90m [key ...][39m[16C[K127.0.0.1:6379> del key added_todos[30m[90m [key ...][39m[16C[K127.0.0.1:6379> del key added_todos[30m[90m [key ...][39m[35C[K127.0.0.1:6379> del key added_todos[35C
+(integer) 1
+127.0.0.1:6379> [K127.0.0.1:6379> k[17C[K127.0.0.1:6379> ke[18C[K127.0.0.1:6379> key[19C[K127.0.0.1:6379> key [20C[K127.0.0.1:6379> key *[21C[K127.0.0.1:6379> key *[21C
+(error) ERR unknown command 'key', with args beginning with: '*' 
+127.0.0.1:6379> [K127.0.0.1:6379> K[17C[K127.0.0.1:6379> KE[18C[K127.0.0.1:6379> KEY[19C[K127.0.0.1:6379> KEY [20C[K127.0.0.1:6379> KEY *[21C[K127.0.0.1:6379> KEY *[21C
+(error) ERR unknown command 'KEY', with args beginning with: '*' 
+127.0.0.1:6379> [K127.0.0.1:6379> KEY *[21C[K127.0.0.1:6379> key *[21C[K127.0.0.1:6379> del key added_todos[30m[90m [key ...][39m[35C[K127.0.0.1:6379> help del[24C[K127.0.0.1:6379> help delete[27C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> SET added_todos 9001[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[36C[K127.0.0.1:6379> help SET[24C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> KEYS *[30m[90m pattern[39m[22C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> help SET[24C[K127.0.0.1:6379> SET added_todos 9001[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[36C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> help delete[27C[K127.0.0.1:6379> help del[24C[K127.0.0.1:6379> del key added_todos[30m[90m [key ...][39m[35C[K127.0.0.1:6379> key *[21C[K127.0.0.1:6379> KEY *[21C[K127.0.0.1:6379> [16C[K127.0.0.1:6379> KEY *[21C[K127.0.0.1:6379> key *[21C[K127.0.0.1:6379> del key added_todos[30m[90m [key ...][39m[35C[K127.0.0.1:6379> help del[24C[K127.0.0.1:6379> help delete[27C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> SET added_todos 9001[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[36C[K127.0.0.1:6379> help SET[24C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> help SET[24C[K127.0.0.1:6379> SET added_todos 9001[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[36C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> help delete[27C[K127.0.0.1:6379> help del[24C[K127.0.0.1:6379> del key added_todos[30m[90m [key ...][39m[35C[K127.0.0.1:6379> help del[24C[K127.0.0.1:6379> help delete[27C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> SET added_todos 9001[30m[90m value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL][39m[36C[K127.0.0.1:6379> help SET[24C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> KEYS *[30m[90m pattern[39m[22C[K127.0.0.1:6379> KEYS *[22C
+(empty array)
+127.0.0.1:6379> [?1l>[27;1H
+[?1049l[23;0;0t[detached from 418797.exec]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r execpresscurl -X POST http://localhost:3001/todos -H "Content-Type: application/json" -d '{"text": "new new todo", "done": true}'[C[C[C[1P[1P[1P[1P[1P[1P[1P[1@k[1@u[1@r[1@i[1@k[1@a[1@i[1@s[1@d[1@j[1P[1P[1P[1P[1P[C[C[C[C[C[C[C[C[C[C[C[1Prue}'[1Pue}'[1Pe}'[1P}'f}'a}'l}'s}'e}'
+[?2004l{"_id":"680baadcece49d63d9654123","text":"kurikaisdj","done":false,"__v":0}[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ curl -X POST http://localhost:3001/todos -H "Content-Type: application/json" -d '{"text": "kurikaisdj", "done": false}'[A]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r exec[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[Kpress
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ REDIS_URL=redis://localhost:6379 MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database npm run dev
+
+> todo-express-backend@0.0.0 dev
+> nodemon ./bin/www
+
+[33m[nodemon] 2.0.22
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[32m[nodemon] starting `node ./bin/www`
+[39mPOST /todos [32m200 [39m24.841 ms - 73
+POST /todos [32m200 [39m3.944 ms - 77
+POST /todos [32m200 [39m2.966 ms - 75
+[?1l>[27;1H
+[?1049l[23;0;0t[detached from 418330.express]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r express[K[K[K[Kex[Kc[K[K[Kec
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J  [33msince:[C[39m1.0.0  
+[33mgroup:[C[39mstring
+
+127.0.0.1:6379> SET added_todos 9001
+OK
+127.0.0.1:6379> GET added_todos
+"9001"
+127.0.0.1:6379> GET added_todos
+"9002"
+127.0.0.1:6379> help delete
+
+127.0.0.1:6379> help del12
+
+[1mDEL[C[0m[30m[90mkey [key ...][17D
+[33msummary:[C[39mDeletes one or more keys.  
+[33msince:[C[39m1.0.0  
+[33mgroup:[C[39mgeneric
+
+127.0.0.1:6379> del key added_todos
+(integer) 1
+127.0.0.1:6379> key *
+(error) ERR unknown command 'key', with args beginning with: '*'
+127.0.0.1:6379> KEY *
+(error) ERR unknown command 'KEY', with args beginning with: '*'
+127.0.0.1:6379> KEYS *
+(empty array)
+127.0.0.1:6379> [K127.0.0.1:6379> KEYS *[30m[90m pattern[39m[22C[K127.0.0.1:6379> KEYS *[22C
+1) "added_todos"
+127.0.0.1:6379> [K127.0.0.1:6379> g[17C[K127.0.0.1:6379> ge[18C[K127.0.0.1:6379> g[17C[K127.0.0.1:6379> [16C[K127.0.0.1:6379> G[17C[K127.0.0.1:6379> GE[18C[K127.0.0.1:6379> GET[19C[K127.0.0.1:6379> GET [30m[90mkey[39m[20C[K127.0.0.1:6379> GET A[30m[90m key[39m[21C[K127.0.0.1:6379> GET [30m[90mkey[39m[20C[K127.0.0.1:6379> GET a[30m[90m key[39m[21C[K127.0.0.1:6379> GET ad[30m[90m key[39m[22C[K127.0.0.1:6379> GET add[30m[90m key[39m[23C[K127.0.0.1:6379> GET adde[30m[90m key[39m[24C[K127.0.0.1:6379> GET added[30m[90m key[39m[25C[?5h[?5l[K127.0.0.1:6379> GET added:[30m[90m key[39m[26C[K127.0.0.1:6379> GET added[30m[90m key[39m[25C[K127.0.0.1:6379> GET added_[30m[90m key[39m[26C[K127.0.0.1:6379> GET added_t[30m[90m key[39m[27C[K127.0.0.1:6379> GET added_to[30m[90m key[39m[28C[K127.0.0.1:6379> GET added_tod[30m[90m key[39m[29C[K127.0.0.1:6379> GET added_todo[30m[90m key[39m[30C[K127.0.0.1:6379> GET added_todos[30m[90m key[39m[31C[K127.0.0.1:6379> GET added_todos[31C
+"1"
+127.0.0.1:6379> 
+root@543332f9e3c6:/data# 
+exit
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ 
+exit
+[?1l>[27;1H
+[?1049l[23;0;0t[screen is terminating]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r exec[K[Kpress
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2J[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ REDIS_URL=redis://localhost:6379 MONGO_URL=mongodb://the_username:the_password@localhost:3456/the_database npm run dev
+
+> todo-express-backend@0.0.0 dev
+> nodemon ./bin/www
+
+[33m[nodemon] 2.0.22
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[32m[nodemon] starting `node ./bin/www`
+[39mPOST /todos [32m200 [39m24.841 ms - 73
+POST /todos [32m200 [39m3.944 ms - 77
+POST /todos [32m200 [39m2.966 ms - 75
+^C
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ 
+exit
+[?1l>[27;1H
+[?1049l[23;0;0t[screen is terminating]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ docker compose -f docker-compose.f[Kdev.yml down
+[?2004l[1A[1B[0G[?25l[+] Running 0/2
+ [33m⠋[0m Container todo-backend-mongo-1  Stopping                                                                                                      [34m0.1s [0m
+ [33m⠋[0m Container todo-backend-redis-1  Stopping                                                                                                      [34m0.1s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 0/2
+ [33m⠙[0m Container todo-backend-mongo-1  Stopping                                                                                                      [34m0.2s [0m
+ [33m⠙[0m Container todo-backend-redis-1  Stopping                                                                                                      [34m0.2s [0m
+[?25h[1A[1A[1A[0G[?25l[34m[+] Running 2/2[0m
+ [32m✔[0m Container todo-backend-mongo-1  [32mRemoved[0m                                                                                                       [34m0.2s [0m
+ [32m✔[0m Container todo-backend-redis-1  [32mRemoved[0m                                                                                                       [34m0.3s [0m
+[?25h[1A[1A[1A[0G[?25l[+] Running 3/3
+ [32m✔[0m Container todo-backend-mongo-1  [32mRemoved[0m                                                                                                       [34m0.2s [0m
+ [32m✔[0m Container todo-backend-redis-1  [32mRemoved[0m                                                                                                       [34m0.3s [0m
+ [32m✔[0m Network todo-backend_default    [32mRemoved[0m                                                                                                       [34m0.1s [0m
+[?25h[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ docker compose -f docker-compose.dev.yml down[28Pscreen -r express[K[K[K[K[K[K[K[K red
+[?2004lThere is no screen to be resumed matching red.
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r red[K[K[K[K
+[?2004lThere are several suitable screens on:
+	417214.docker	(25.04.2025 18.24.32)	(Detached)
+	413573.pts-6.zhadum	(25.04.2025 18.14.04)	(Detached)
+Type "screen [-d] -r [pid.]tty.host" to resume one of them.
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ screen -r docker 
+[?2004l[!p[?3;4l[4l>[?1049h[22;0;0t[4l[?1h=[0m(B[1;27r[H[2J[H[2Jr":{"durationMillis":27}}
+[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:33:04.814+00:00"},"s":"I",  "c":"STORAGE",  "id":22279,   "ctx":"SignalHandler","msg":"shutdown: removing fs lock..."}
+[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:33:04.814+00:00"},"s":"I",  "c":"-",[8C"id":4784931, "ctx":"SignalHandler","msg":"Dropping the scope cache for shutdown"}
+[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:33:04.814+00:00"},"s":"I",  "c":"FTDC",[5C"id":20626,   "ctx":"SignalHandler","msg":"Shutting down full-time diagnostic data capture"}
+[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:33:04.820+00:00"},"s":"I",  "c":"CONTROL",  "id":20565,   "ctx":"SignalHandler","msg":"Now exiting"}
+[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:33:04.820+00:00"},"s":"I",  "c":"CONTROL",  "id":8423404, "ctx":"SignalHandler","msg":"mongod shutdown complete","attr":{"Summary of time elapsed":{"Statistics":{"Enter terminal shutdown":"0 ms","Step down the replication coordinator for shutdown":"0 ms","Time spent in quiesce mode":"0 ms","Shut down FLE Crud subsystem":"0 ms","Shut down MirrorMaestro":"0 ms","Shut down WaitForMajorityService":"1 ms","Shut down the logical session cache":"1 ms","Shut down the global connection pool":"0 ms","Shut down the flow control ticket holder":"0 ms","Shut down the thread that aborts expired transactions":"0 ms","Kill all operations for shutdown":"0 ms","Shut down all tenant migration access blockers on global shutdown":"0 ms","Shut down all open transactions":"1 ms","Acquire the RSTL for shutdown":"0 ms","Shut down the IndexBuildsCoordinator and wait for index builds to finish":"0 ms","Shut down the replica set monitor":"0 ms","Shut down the migration util executor":"0 ms","Shut down the transport layer":"0 ms","Shut down the health log":"0 ms","Shut down the TTL monitor":"0 ms","Shut down expired pre-images and documents removers":"0 ms","Shut down the storage engine":"28 ms","Wait for the oplog cap maintainer thread to stop":"0 ms","Shut down full-time data capture":"0 ms","Shut down online certificate status protocol manager":"0 ms","shutdownTask total elapsed time":"37 ms"}}}}
+[36mmongo-1  | [39m{"t":{"$date":"2025-04-25T15:33:04.820+00:00"},"s":"I",  "c":"CONTROL",  "id":23138,   "ctx":"SignalHandler","msg":"Shutting down","attr":{"exitCode":0}}
+[33mredis-1  | [39m1:M 25 Apr 2025 15:33:04.842 * User requested shutdown...
+[33mredis-1  | [39m1:M 25 Apr 2025 15:33:04.842 * Saving the final RDB snapshot before exiting.
+[33mredis-1  | [39m1:M 25 Apr 2025 15:33:04.846 * DB saved on disk
+[33mredis-1  | [39m1:M 25 Apr 2025 15:33:04.846 # Redis is now ready to exit, bye bye...
+[36mmongo-1 exited with code 0
+[33mredis-1 exited with code 0
+[1m[32mvadenn@zhadum[0m:[1m[34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[0m$ 
+exit
+[?1l>[27;1H
+[?1049l[23;0;0t[screen is terminating]
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ docker ps
+[?2004lCONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[?2004h]0;vadenn@zhadum: ~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[01;32mvadenn@zhadum[00m:[01;34m~/src/oma/fs/fullStackOpen/osa012/todo-app/todo-backend[00m$ [?2004l
+exit
+
+Script done on 2025-04-25 18:33:35+03:00 [COMMAND_EXIT_CODE="0"]
