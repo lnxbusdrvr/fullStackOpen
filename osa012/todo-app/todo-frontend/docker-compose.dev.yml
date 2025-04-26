@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   app:
     image: todo-front-dev
@@ -9,3 +11,18 @@ services:
     ports:
       - 5173:5173
     container_name: todo-front-dev # This will name the container hello-front-dev
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ../nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://app:5173/"]
+      interval: 30s # check every 30s
+      timeout: 10s # waith to get answer in 10s
+      retries: 3 # how many times tries again if no connect
+    depends_on:
+      - app # wait for the frontend container to be started
+
