@@ -1,4 +1,18 @@
 services:
+  server:
+    image: todo-backend-dev
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    ports:
+      - 3001:3001
+    environment:
+      - REDIS_URL=redis://redis:6379 # instead of localhost, we need to use service name (redis)
+      - MONGO_URL=mongodb://mongo:27017/the_database
+    container_name: todo-backend-dev
+
   mongo:
     image: mongo
     ports:
@@ -9,7 +23,8 @@ services:
       MONGO_INITDB_DATABASE: the_database
     volumes:
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-      - mongo_data:/data/db
+      - mongo_data:/data/db # Named Volume
+    container_name: mongo
 
   redis:
     image: redis
@@ -17,7 +32,9 @@ services:
       - 6379:6379
     volumes:
       - ./redis_data:/data
+    container_name: redis
 
+# Named Volume
 volumes:
   mongo_data:
 
