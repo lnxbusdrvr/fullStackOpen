@@ -1,0 +1,36 @@
+services:
+  app:
+    image: frontend-dev
+    build:
+      context: ./frontend
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
+    container_name: app
+    environment:
+      - VITE_BACKEND_URL=http://localhost:8080/api
+
+  server:
+    image: backend-dev
+    build:
+      context: ./backend
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./backend:/usr/src/app
+    container_name: server
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+      - server
+    container_name: reverse-proxy
+
+
+volumes:
+  mongo_data:
+
