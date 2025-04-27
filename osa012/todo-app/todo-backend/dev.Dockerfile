@@ -4,6 +4,9 @@ WORKDIR /usr/src/app
 
 COPY --chown=node:node . .
 
-RUN npm ci
+# Change npm ci to npm install since we are going to be in development mode
+RUN npm install
 
-CMD ["npx", "nodaemon", "index.js"]
+ENV DEBUG=todo-backend:*
+
+CMD ["npm", "run", "dev"]
