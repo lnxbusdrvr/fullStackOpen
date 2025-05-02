@@ -8,3 +8,4 @@ mooc.fi fullStack excercises
 3. [Part3 - Fontend](https://github.com/lnxbusdrvr/fullStackOpenPart3Front/)
 4. [Part11 - Fork](https://github.com/lnxbusdrvr/full-stack-open-pokedex/)
 5. [Part11 - phonebook ci/cd](https://github.com/lnxbusdrvr/ci-cd-fso11/)
+6. [Part13 - Exercises](https://github.com/lnxbusdrvr/relationalDatabases/)
